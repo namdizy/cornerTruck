@@ -17,10 +17,8 @@ export class Connectivity {
 
   isOnline(): void {
     if(this.onDevice && Network.type){
-      console.log("here inside");
       this.events.publish('network:connected', Network.type !== Connection.NONE);
     } else {
-      console.log("also here inside");
       this.events.publish('network:connected', navigator.onLine);
     }
   }
