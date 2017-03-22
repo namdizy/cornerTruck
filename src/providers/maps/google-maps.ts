@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 import { Geolocation } from 'ionic-native';
 import { Events } from 'ionic-angular'
 
-declare const google;
+declare var google;
 
 @Injectable()
 export class GoogleMaps{
@@ -18,18 +18,17 @@ export class GoogleMaps{
   constructor(private events: Events){}
 
   init(mapElement: any, pleaseConnect: any){
-
     this.mapElement = mapElement;
     this.pleaseConnect = pleaseConnect;
+
     this.loadGoogleMaps();
   }
 
-  loadGoogleMaps() {
-    console.log("what what");
+  loadGoogleMaps(){
     this.events.subscribe('network:connected', (status) => {
-      console.log('wowowowo');
-      let connected = status[0] === true;
-      if (!connected) {
+      console.log('in here')
+
+      if (!status) {
         this.disableMap();
       }
       else {

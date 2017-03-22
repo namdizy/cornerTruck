@@ -1,8 +1,7 @@
-import { Component, ViewChild, ElementRef  } from '@angular/core';
-import {Platform} from 'ionic-angular';
+import { Component, ViewChild, ElementRef} from '@angular/core';
 import { GoogleMaps } from '../../providers/maps/google-maps';
 
-import { NavController, Events } from 'ionic-angular';
+import { NavController, Events, Platform } from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
@@ -12,19 +11,15 @@ export class HomePage {
 
   showList :boolean = false;
   items: string[];
-
   @ViewChild('map') mapElement: ElementRef;
   @ViewChild('pleaseConnect') pleaseConnect: ElementRef;
 
-  constructor(public navCtrl: NavController, private events: Events, private platform: Platform, private maps: GoogleMaps) {
-    this.events.subscribe('test', (status) =>{
-      console.log(status);
-    });
+  constructor(public navCtrl: NavController, private platform: Platform,
+              private maps: GoogleMaps) {
 
-    this.events.subscribe('network:connected', (status) => {
-      console.log(status);
-    });
+  }
 
+  ionViewDidLoad(){
     this.maps.init(this.mapElement.nativeElement, this.pleaseConnect.nativeElement)
   }
 
