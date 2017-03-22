@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+    <ion-list *ngIf="showList">
+      <ion-item  *ngFor="let item of items">
+        {{ item }}
+      </ion-item>
+    </ion-list>
+  </ion-navbar>
+</ion-header>
+
+<ion-content scroll="false">
+  <ion-card #pleaseConnect id="please-connect">
+    <ion-card-header>
+      Something Went Wrong
+    </ion-card-header>
+    <ion-card-content>
+      Oops! Looks like you have no internet connection.
+    </ion-card-content>
+  </ion-card>
+  <div #map id="map"></div> 
+</ion-content>
