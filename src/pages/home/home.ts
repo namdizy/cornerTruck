@@ -23,6 +23,7 @@ export class HomePage {
   }
 
   loadListModal(){
+    let modal = this.modalCtrl.create(ModalListPage, null, {showBackdrop: true, enableBackdropDismiss: true});
     modal.present();
   }
 
