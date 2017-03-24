@@ -8,10 +8,7 @@ import { PinPage } from '../pages/pin/pin';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { ProfilePage } from '../pages/profile/profile';
-import { HomeTabsPage } from '../pages/home-tabs/home-tabs';
-import { ListPage } from '../pages/home-list/list';
-import { MapPage } from '../pages/home-map/map';
-import { OptionsPage } from '../pages/home-options/options';
+import { ModalListPage } from '../pages/modal-list/modal-list'
 
 @NgModule({
   declarations: [
@@ -21,10 +18,7 @@ import { OptionsPage } from '../pages/home-options/options';
     ProfilePage,
     HomePage,
     TabsPage,
-    HomeTabsPage,
-    ListPage,
-    MapPage,
-    OptionsPage
+    ModalListPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -37,10 +31,7 @@ import { OptionsPage } from '../pages/home-options/options';
     PinPage,
     HomePage,
     TabsPage,
-    HomeTabsPage,
-    ListPage,
-    MapPage,
-    OptionsPage
+    ModalListPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })

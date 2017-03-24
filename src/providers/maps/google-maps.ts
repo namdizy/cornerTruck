@@ -47,6 +47,9 @@ export class GoogleMaps{
       let mapOptions = {
         center: latLng,
         zoom: 15,
+        mapTypeControlOptions: {
+          mapTypeIds: []
+        },
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
       this.map = new google.maps.Map(this.mapElement, mapOptions);
