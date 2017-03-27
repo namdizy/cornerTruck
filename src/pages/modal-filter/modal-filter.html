@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <ion-icon id="title-icon" name="options" align-items-center="true"></ion-icon>
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span ion-text color="primary" showWhen="ios">Cancel</span>
+        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+      Distance Away
+    </ion-list-header>
+    <ion-item>
+      <ion-range min="0" max="200" pin="true" [(ngModel)]="mapDistance" color="secondary">
+        <ion-label range-left>0 miles</ion-label>
+        <ion-label range-right>200 miles</ion-label>
+      </ion-range>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-list-header>
+      Hours
+      <ion-badge item-right>{{hours.lower}}</ion-badge>
+      <ion-badge item-right>{{hours.upper}}</ion-badge>
+    </ion-list-header>
+    <ion-item>
+      <ion-range dualKnobs="true" min="0" max="24" pin="true" [(ngModel)]="hours" color="secondary">
+        <ion-label range-left>12am</ion-label>
+        <ion-label range-right>12pm</ion-label>
+      </ion-range>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item>
+      <ion-label>Cuisine</ion-label>
+      <ion-select [(ngModel)]="cuisine" multiple="true">
+        <ion-option value="seafood">Seafood</ion-option>
+        <ion-option value="vegan">Vegan</ion-option>
+        <ion-option value="hotDog">Hot dog</ion-option>
+        <ion-option value="fruit">Fruit</ion-option>
+        <ion-option value="iceCream">Ice Cream</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item>
+      <ion-label>Rating</ion-label>
+      <ion-select [(ngModel)]="ratings">
+        <ion-option value="5stars">5 Stars</ion-option>
+        <ion-option value="4stars">4 Stars</ion-option>
+        <ion-option value="3stars">3 Stars</ion-option>
+        <ion-option value="2stars">2 Stars</ion-option>
+        <ion-option value="1star">1 Star</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+</ion-content>

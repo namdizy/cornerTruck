@@ -9,6 +9,7 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { ProfilePage } from '../pages/profile/profile';
 import { ModalListPage } from '../pages/modal-list/modal-list'
+import { ModalFilterPage } from '../pages/modal-filter/modal-filter'
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ModalListPage } from '../pages/modal-list/modal-list'
     ProfilePage,
     HomePage,
     TabsPage,
-    ModalListPage
+    ModalListPage,
+    ModalFilterPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -31,7 +33,9 @@ import { ModalListPage } from '../pages/modal-list/modal-list'
     PinPage,
     HomePage,
     TabsPage,
-    ModalListPage
+    ModalListPage,
+    ModalFilterPage
+
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })

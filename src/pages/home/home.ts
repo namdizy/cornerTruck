@@ -3,6 +3,7 @@ import { NavController, ModalController } from 'ionic-angular';
 
 import { GoogleMaps } from '../../providers/maps/google-maps';
 import { ModalListPage } from '../modal-list/modal-list'
+import { ModalFilterPage } from '../modal-filter/modal-filter'
 
 @Component({
   selector: 'page-home',
@@ -23,11 +24,12 @@ export class HomePage {
   }
 
   loadListModal(){
-    let modal = this.modalCtrl.create(ModalListPage, null, {showBackdrop: true, enableBackdropDismiss: true});
-    modal.present();
+    let listModal = this.modalCtrl.create(ModalListPage, null, {showBackdrop: true, enableBackdropDismiss: true});
+    listModal.present();
   }
 
   loadFilterModal(){
-
+    let filterModal = this.modalCtrl.create(ModalFilterPage, null, {showBackdrop: true, enableBackdropDismiss: true});
+    filterModal.present();
   }
 }

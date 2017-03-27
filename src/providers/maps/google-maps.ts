@@ -42,11 +42,12 @@ export class GoogleMaps{
   initMap(): Promise<any> {
     return Geolocation.getCurrentPosition().then((position) => {
       this.mapInitialised = true;
-      let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+      let location = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
       let mapOptions = {
-        center: latLng,
+        center: location,
         zoom: 15,
+        scrollwheel: false,
         mapTypeControlOptions: {
           mapTypeIds: []
         },
@@ -54,6 +55,32 @@ export class GoogleMaps{
       };
       this.map = new google.maps.Map(this.mapElement, mapOptions);
       this.addMarker(position.coords.latitude, position.coords.longitude);
+
+      var request = {
+        location: location,
+        radius: '500',
+        types: ['food truck']
+      };
+
+      // Create the PlaceService and send the request.
+      // Handle the callback with an anonymous function.
+      var service = new google.maps.places.PlacesService(this.map);
+      service.nearbySearch(request, (results, status) =>{
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+            var place = results[i];
+            // If the request succeeds, draw the place location on
+            // the map as a marker, and register an event to handle a
+            // click on the marker.
+            var marker = new google.maps.Marker({
+              map: this.map,
+              position: place.geometry.location
+            });
+          }
+        }
+      });
+
+
     });
   }
 
