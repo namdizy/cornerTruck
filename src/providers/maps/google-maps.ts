@@ -3,7 +3,8 @@
  */
 import { Injectable } from '@angular/core';
 import { Geolocation } from 'ionic-native';
-import { Events } from 'ionic-angular'
+import { Events } from 'ionic-angular';
+import { YelpService } from '../../providers/services/yelp.service';
 
 declare var google;
 
@@ -14,8 +15,9 @@ export class GoogleMaps{
   map: any;
   mapInitialised: boolean = false;
   markers: any = [];
+  places: any = [];
 
-  constructor(private events: Events){}
+  constructor(private events: Events, public yelpService: YelpService){}
 
   init(mapElement: any, pleaseConnect: any){
     this.mapElement = mapElement;
@@ -26,8 +28,6 @@ export class GoogleMaps{
 
   loadGoogleMaps(){
     this.events.subscribe('network:connected', (status) => {
-      console.log('in here')
-
       if (!status) {
         this.disableMap();
       }
@@ -57,31 +57,32 @@ export class GoogleMaps{
       this.addMarker(position.coords.latitude, position.coords.longitude);
 
       var request = {
-        location: location,
+        latitude: position.coords.latitude.toString(),
+        longitude: position.coords.longitude.toString(),
         radius: '500',
-        types: ['food truck']
+        types: ['food', 'truck']
       };
 
-      // Create the PlaceService and send the request.
-      // Handle the callback with an anonymous function.
-      var service = new google.maps.places.PlacesService(this.map);
-      service.nearbySearch(request, (results, status) =>{
-        if (status == google.maps.places.PlacesServiceStatus.OK) {
-          for (var i = 0; i < results.length; i++) {
-            var place = results[i];
-            // If the request succeeds, draw the place location on
-            // the map as a marker, and register an event to handle a
-            // click on the marker.
-            var marker = new google.maps.Marker({
-              map: this.map,
-              position: place.geometry.location
-            });
-          }
-        }
-      });
-
-
+      this.yelpService.findPlaces(request).subscribe(data => {
+          this.places = data;
+          console.log(data);
+          this.mapPlaces(data);
+        },
+        err => {
+          console.log(err);
+        },
+        () => console.log('Places Search Complete')
+      );
     });
+  }
+
+  mapPlaces(data: any): void{
+    if(data.length > 0){
+      for(let i = 0; i<data.length; i++){
+        let place = data[i];
+        this.addMarker(place.coordinates.latitude, place.coordinates.longitude);
+      }
+    }
   }
 
   disableMap(): void {

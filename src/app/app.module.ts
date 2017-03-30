@@ -11,6 +11,8 @@ import { ProfilePage } from '../pages/profile/profile';
 import { ModalListPage } from '../pages/modal-list/modal-list'
 import { ModalFilterPage } from '../pages/modal-filter/modal-filter'
 
+import { HttpModule, JsonpModule } from '@angular/http';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -23,7 +25,9 @@ import { ModalFilterPage } from '../pages/modal-filter/modal-filter'
     ModalFilterPage
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpModule,
+    JsonpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

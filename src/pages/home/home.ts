@@ -2,8 +2,8 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController, ModalController } from 'ionic-angular';
 
 import { GoogleMaps } from '../../providers/maps/google-maps';
-import { ModalListPage } from '../modal-list/modal-list'
-import { ModalFilterPage } from '../modal-filter/modal-filter'
+import { ModalListPage } from '../modal-list/modal-list';
+import { ModalFilterPage } from '../modal-filter/modal-filter';
 
 @Component({
   selector: 'page-home',

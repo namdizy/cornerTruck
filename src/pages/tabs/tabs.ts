@@ -10,10 +10,11 @@ import { Platform } from 'ionic-angular';
 
 import { Connectivity } from '../../providers/connectivity';
 import { GoogleMaps } from '../../providers/maps/google-maps'
+import { YelpService } from '../../providers/services/yelp.service';
 
 @Component({
   templateUrl: 'tabs.html',
-  providers: [Connectivity, GoogleMaps]
+  providers: [Connectivity, GoogleMaps, YelpService]
 })
 export class TabsPage {
   // this tells the tabs component which Pages
