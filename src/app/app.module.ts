@@ -39,7 +39,6 @@ import { HttpModule, JsonpModule } from '@angular/http';
     TabsPage,
     ModalListPage,
     ModalFilterPage
-
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })

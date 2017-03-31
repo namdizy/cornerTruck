@@ -3,10 +3,10 @@
  */
 import { Injectable } from '@angular/core';
 import { Geolocation } from 'ionic-native';
-import { Events } from 'ionic-angular';
-import { YelpService } from '../../providers/services/yelp.service';
+import { Events, ModalController } from 'ionic-angular';
+import { YelpService } from '../services/yelp.service';
 
-declare var google;
+declare let google;
 
 @Injectable()
 export class GoogleMaps{
@@ -17,7 +17,7 @@ export class GoogleMaps{
   markers: any = [];
   places: any = [];
 
-  constructor(private events: Events, public yelpService: YelpService){}
+  constructor(private events: Events, public yelpService: YelpService, public modalCtrl: ModalController){}
 
   init(mapElement: any, pleaseConnect: any){
     this.mapElement = mapElement;
@@ -54,9 +54,9 @@ export class GoogleMaps{
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
       this.map = new google.maps.Map(this.mapElement, mapOptions);
-      this.addMarker(position.coords.latitude, position.coords.longitude);
+      this.addMarker(position.coords.latitude, position.coords.longitude, {name: 'me!'});
 
-      var request = {
+      let request = {
         latitude: position.coords.latitude.toString(),
         longitude: position.coords.longitude.toString(),
         radius: '500',
@@ -65,7 +65,6 @@ export class GoogleMaps{
 
       this.yelpService.findPlaces(request).subscribe(data => {
           this.places = data;
-          console.log(data);
           this.mapPlaces(data);
         },
         err => {
@@ -77,17 +76,18 @@ export class GoogleMaps{
   }
 
   mapPlaces(data: any): void{
+    console.log(data);
     if(data.length > 0){
       for(let i = 0; i<data.length; i++){
         let place = data[i];
-        this.addMarker(place.coordinates.latitude, place.coordinates.longitude);
+        this.addMarker(place.coordinates.latitude, place.coordinates.longitude, data[i]);
       }
     }
   }
 
   disableMap(): void {
     if(this.pleaseConnect){
-      this.mapElement.style.display = "none"
+      this.mapElement.style.display = "none";
       this.pleaseConnect.style.display = "block";
     }
   }
@@ -99,14 +99,31 @@ export class GoogleMaps{
     }
   }
 
-  addMarker(lat: number, lng: number): void {
+  addMarker(lat: number, lng: number, place: any): void {
     let latLng = new google.maps.LatLng(lat, lng);
+
+    console.log(place);
     let marker = new google.maps.Marker({
       map: this.map,
       animation: google.maps.Animation.DROP,
-      position: latLng
+      position: latLng,
+      title: place.name
+    });
+
+    let infoWindow = new google.maps.InfoWindow({
+      content: '<div class="map-content" onClick="test()" style="background:white;opacity:0.8;"><h3>' + place.name + '</h3> <p style="color: #8e9093">'+place.distance+'m away</p></div>'
+    });
+
+    marker.addListener('click', ()=> {
+      infoWindow.open(this.map, marker);
+      //let pageDetails = this.modalCtrl.create(ModalListPage);
+      //pageDetails.present();
     });
 
     this.markers.push(marker);
+  }
+
+  test(): void{
+    console.log('clicked!');
   }
 }
