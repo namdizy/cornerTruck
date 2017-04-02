@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 import { Geolocation } from 'ionic-native';
 import { Events, ModalController } from 'ionic-angular';
 import { YelpService } from '../services/yelp.service';
+import { PlacesService } from '../services/places.service';
 
 declare let google;
 
@@ -17,7 +18,7 @@ export class GoogleMaps{
   markers: any = [];
   places: any = [];
 
-  constructor(private events: Events, public yelpService: YelpService, public modalCtrl: ModalController){}
+  constructor(private events: Events, public yelpService: YelpService, public placesService: PlacesService, public modalCtrl: ModalController){}
 
   init(mapElement: any, pleaseConnect: any){
     this.mapElement = mapElement;
@@ -60,11 +61,12 @@ export class GoogleMaps{
         latitude: position.coords.latitude.toString(),
         longitude: position.coords.longitude.toString(),
         radius: '500',
-        types: ['food', 'truck']
+        types: 'foodtrucks'
       };
 
       this.yelpService.findPlaces(request).subscribe(data => {
           this.places = data;
+          this.placesService.setPlaces(data);
           this.mapPlaces(data);
         },
         err => {
@@ -76,7 +78,6 @@ export class GoogleMaps{
   }
 
   mapPlaces(data: any): void{
-    console.log(data);
     if(data.length > 0){
       for(let i = 0; i<data.length; i++){
         let place = data[i];
@@ -101,8 +102,6 @@ export class GoogleMaps{
 
   addMarker(lat: number, lng: number, place: any): void {
     let latLng = new google.maps.LatLng(lat, lng);
-
-    console.log(place);
     let marker = new google.maps.Marker({
       map: this.map,
       animation: google.maps.Animation.DROP,
@@ -121,9 +120,5 @@ export class GoogleMaps{
     });
 
     this.markers.push(marker);
-  }
-
-  test(): void{
-    console.log('clicked!');
   }
 }

@@ -1,7 +1,8 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
-import { MyApp } from './app.component';
+import { HttpModule, JsonpModule } from '@angular/http';
 
+import { MyApp } from './app.component';
 
 import {TrendingPage} from '../pages/trending/trending';
 import { PinPage } from '../pages/pin/pin';
@@ -11,7 +12,12 @@ import { ProfilePage } from '../pages/profile/profile';
 import { ModalListPage } from '../pages/modal-list/modal-list'
 import { ModalFilterPage } from '../pages/modal-filter/modal-filter'
 
-import { HttpModule, JsonpModule } from '@angular/http';
+import { Connectivity } from '../providers/connectivity';
+import { GoogleMaps } from '../providers/maps/google-maps'
+import { YelpService } from '../providers/services/yelp.service';
+import { PlacesService } from '../providers/services/places.service';
+
+
 
 @NgModule({
   declarations: [
@@ -40,6 +46,7 @@ import { HttpModule, JsonpModule } from '@angular/http';
     ModalListPage,
     ModalFilterPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Connectivity,
+    GoogleMaps, YelpService, PlacesService ]
 })
 export class AppModule {}
