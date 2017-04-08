@@ -1,5 +1,37 @@
 page-home {
+  .home-nav{
+    background-color: transparent;
+  }
   #map{
     height: 100%;
   }
+  .ct-searchBtn-overlay{
+    position: fixed;
+    width: 85%;
+    height: 7%;
+    background: rgba(247, 249, 252,0.7);
+    z-index: 20;
+    left: 5%;
+    top: 0.9%;
+    padding: 0;
+  }
+  .ct-searchBtn-overlay ion-card-content{
+    padding: 0;
+    margin: 1px 0 0 0;
+  }
+
+  .ct-center{
+    text-align: center;
+  }
+
+  @media screen and (orientation:landscape) {
+    /* landscape-specific styles */
+    .ct-searchBtn-overlay{
+      height: 12%;
+      top: 2.4%;
+      width: 90%;
+    }
+
+  }
+
 }

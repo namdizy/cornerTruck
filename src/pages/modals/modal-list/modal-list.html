@@ -15,12 +15,12 @@
 
 <ion-content>
   <ion-list>
-    <ion-item>
+    <ion-item *ngFor="let place of places | orderBy: 'distance'">
       <ion-thumbnail item-left>
-        <img src="">
+        <img [src]=place.image_url>
       </ion-thumbnail>
-      <h2>My Neighbor Totoro</h2>
-      <p>Hayao Miyazaki • 1988</p>
+      <h2>{{place.name}}</h2>
+      <p>{{place.distance * 0.000621371 | number:'1.2-2'}}m away</p>
       <button ion-button clear item-right>View</button>
     </ion-item>
   </ion-list>

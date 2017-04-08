@@ -2,8 +2,9 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController, ModalController } from 'ionic-angular';
 
 import { GoogleMaps } from '../../providers/maps/google-maps';
-import { ModalListPage } from '../modal-list/modal-list';
-import { ModalFilterPage } from '../modal-filter/modal-filter';
+import { ModalListPage } from '../modals/modal-list/modal-list';
+import { ModalFilterPage } from '../modals/modal-filter/modal-filter';
+import { SearchPage } from '../search/search';
 
 @Component({
   selector: 'page-home',
@@ -31,5 +32,9 @@ export class HomePage {
   loadFilterModal(){
     let filterModal = this.modalCtrl.create(ModalFilterPage, null, {showBackdrop: true, enableBackdropDismiss: true});
     filterModal.present();
+  }
+
+  loadSearch(){
+    this.navCtrl.push(SearchPage);
   }
 }

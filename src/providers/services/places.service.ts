@@ -10,11 +10,9 @@ export class PlacesService{
   constructor(){}
   setPlaces(data) :void{
     this.places = data;
-    console.log("set places in places service");
   }
 
   getPlaces(): any{
-    console.log("get places in places service");
     return this.places;
   }
 }

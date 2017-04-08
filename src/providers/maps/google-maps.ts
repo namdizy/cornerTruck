@@ -48,7 +48,7 @@ export class GoogleMaps{
       let mapOptions = {
         center: location,
         zoom: 15,
-        scrollwheel: false,
+        scrollwheel: true,
         mapTypeControlOptions: {
           mapTypeIds: []
         },
@@ -74,6 +74,8 @@ export class GoogleMaps{
         },
         () => console.log('Places Search Complete')
       );
+    }).catch((err) =>{
+      console.log(err);
     });
   }
 
@@ -110,7 +112,7 @@ export class GoogleMaps{
     });
 
     let infoWindow = new google.maps.InfoWindow({
-      content: '<div class="map-content" onClick="test()" style="background:white;opacity:0.8;"><h3>' + place.name + '</h3> <p style="color: #8e9093">'+place.distance+'m away</p></div>'
+      content: '<div class="map-content" onClick="test()" style="background:white;opacity:0.8;"><h3>' + place.name + '</h3> <p style="color: #8e9093">'+place.distance*0.000621371 +'m away</p></div>'
     });
 
     marker.addListener('click', ()=> {
