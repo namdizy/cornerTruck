@@ -1,0 +1,19 @@
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <div class="ct-btn-center">
+        <button ion-button color="primary" (click)="generateQRCode()" outline>Generate QR Code</button>
+      </div>
+    </ion-card-header>
+    <qr-code [value]="qrcode" size="250"></qr-code>
+    <ion-card-content>
+      <div class="ct-p-center" *ngIf="codeGenerated">
+        <p>
+          Scan QR Code to check in!
+        </p>
+      </div>
+    </ion-card-content>
+
+  </ion-card>
+</ion-content>

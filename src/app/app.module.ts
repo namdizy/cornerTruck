@@ -3,6 +3,9 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 
+import { Ng2OrderModule } from 'ng2-order-pipe';
+import { QRCodeModule } from 'angular2-qrcode';
+
 import { MyApp } from './app.component';
 
 import {TrendingPage} from '../pages/trending/trending';
@@ -13,18 +16,13 @@ import { ProfilePage } from '../pages/profile/profile';
 import { ModalListPage } from '../pages/modals/modal-list/modal-list';
 import { ModalFilterPage } from '../pages/modals/modal-filter/modal-filter';
 import { SearchPage } from '../pages/search/search';
-
-import { Ng2OrderModule } from 'ng2-order-pipe';
+import { PinPinPage } from '../pages/pin/pin-pin/pin-pin';
+import { CheckInPage } from '../pages/pin/check-in/check-in';
 
 import { Connectivity } from '../providers/connectivity';
 import { GoogleMaps } from '../providers/maps/google-maps'
 import { YelpService } from '../providers/services/yelp.service';
 import { PlacesService } from '../providers/services/places.service';
-
-
-//import { OrderBy } from '../providers/pipes/orderby';
-
-
 
 @NgModule({
   declarations: [
@@ -36,14 +34,17 @@ import { PlacesService } from '../providers/services/places.service';
     TabsPage,
     ModalListPage,
     ModalFilterPage,
-    SearchPage
+    SearchPage,
+    PinPinPage,
+    CheckInPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
     HttpModule,
     JsonpModule,
     Ng2OrderModule,
-    MaterialModule
+    MaterialModule,
+    QRCodeModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -55,7 +56,9 @@ import { PlacesService } from '../providers/services/places.service';
     TabsPage,
     ModalListPage,
     ModalFilterPage,
-    SearchPage
+    SearchPage,
+    PinPinPage,
+    CheckInPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Connectivity,
     GoogleMaps, YelpService, PlacesService ]

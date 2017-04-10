@@ -1,10 +1,7 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      PIN
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-
 <ion-content>
+  <ion-tabs tabsPlacement ="top">
+    <ion-tab [root]="checkInPage" tabTitle="Check In" tabIcon=""></ion-tab>
+    <ion-tab [root]="pinPage" tabTitle="Pin" tabIcon=""></ion-tab>
+  </ion-tabs>
+
 </ion-content>

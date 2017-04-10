@@ -33,6 +33,7 @@ export class GoogleMaps{
         this.disableMap();
       }
       else {
+        console.log("start map init loodgoogle maps")
         this.initMap().then(() => {
           this.enableMap();
         })
@@ -41,7 +42,9 @@ export class GoogleMaps{
   }
 
   initMap(): Promise<any> {
+    console.log("this is initmap");
     return Geolocation.getCurrentPosition().then((position) => {
+      console.log("this is init map");
       this.mapInitialised = true;
       let location = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 

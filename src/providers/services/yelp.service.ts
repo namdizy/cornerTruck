@@ -9,8 +9,8 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class YelpService{
-  dbURL: string = "http://10.0.2.2:3000/api/places";
-  //dbURL: string = "http://localhost:3000/api/places";
+  //dbURL: string = "http://10.0.2.2:3000/api/places";
+  dbURL: string = "http://localhost:3000/api/places";
   constructor(private http: Http){}
 
   findPlaces(req): Observable<any>{
