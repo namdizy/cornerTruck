@@ -1,3 +1,22 @@
 page-pin-pin {
+  textarea {
+    resize: both;
+  }
+  .ct-btn-right{
+    width: 100%;
+    text-align: right;
+  }
 
+  .ct-image-select{
+    position: relative;
+    padding: 0;
+  }
+
+  .ct-btn-image{
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: auto;
+  }
 }
