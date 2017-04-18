@@ -2,13 +2,14 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { Ng2OrderModule } from 'ng2-order-pipe';
 import { QRCodeModule } from 'angular2-qrcode';
 
 import { MyApp } from './app.component';
 
-import {TrendingPage} from '../pages/trending/trending';
+import { TrendingPage } from '../pages/trending/trending';
 import { PinPage } from '../pages/pin/pin';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
@@ -44,7 +45,8 @@ import { PlacesService } from '../providers/services/places.service';
     JsonpModule,
     Ng2OrderModule,
     MaterialModule,
-    QRCodeModule
+    QRCodeModule,
+    BrowserModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
