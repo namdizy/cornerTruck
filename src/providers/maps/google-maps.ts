@@ -42,9 +42,7 @@ export class GoogleMaps{
   }
 
   initMap(): Promise<any> {
-    console.log("this is initmap");
     return Geolocation.getCurrentPosition().then((position) => {
-      console.log("this is init map");
       this.mapInitialised = true;
       let location = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
@@ -58,7 +56,7 @@ export class GoogleMaps{
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
       this.map = new google.maps.Map(this.mapElement, mapOptions);
-      this.addMarker(position.coords.latitude, position.coords.longitude, {name: 'me!'});
+      this.addMarker(position.coords.latitude, position.coords.longitude, {name: 'me!', distance: 0});
 
       let request = {
         latitude: position.coords.latitude.toString(),
@@ -115,7 +113,8 @@ export class GoogleMaps{
     });
 
     let infoWindow = new google.maps.InfoWindow({
-      content: '<div class="map-content" onClick="test()" style="background:white;opacity:0.8;"><h3>' + place.name + '</h3> <p style="color: #8e9093">'+place.distance*0.000621371 +'m away</p></div>'
+      content:  '<div class="map-content" onClick="test()" style="background:white;opacity:0.8;"><h3>' + place.name +
+                '</h3> <p style="color: #8e9093">'+place.distance*0.000621371 +'m away</p></div>'
     });
 
     marker.addListener('click', ()=> {
@@ -125,5 +124,9 @@ export class GoogleMaps{
     });
 
     this.markers.push(marker);
+  }
+
+  test(){
+    console.log("clicked!!")
   }
 }

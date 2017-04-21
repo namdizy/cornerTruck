@@ -9,75 +9,79 @@
         <ion-label>Use Current location</ion-label>
       </ion-item>
     </ion-list>
+      <ion-list formGroupName="address"  [hidden]="pinForm.controls.location.value">
+        <ion-list-header>Enter Address</ion-list-header>
+        <ion-item>
+          <ion-label>Street</ion-label>
+          <ion-input formControlName="street" type="text"></ion-input>
+        </ion-item>
 
-    <ion-list [hidden]="pinForm.controls.location.value">
-      <ion-list-header>Enter Address</ion-list-header>
-      <ion-item>
-        <ion-label>Street</ion-label>
-        <ion-input type="text"></ion-input>
-      </ion-item>
+        <ion-item>
+          <ion-label>City</ion-label>
+          <ion-input formControlName="city" type="text"></ion-input>
+        </ion-item>
 
-      <ion-item>
-        <ion-label>City</ion-label>
-        <ion-input type="text"></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-label>Zip</ion-label>
-        <ion-input type="text"  ></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label>State</ion-label>
-        <ion-select >
-          <ion-option *ngFor="let s of states" >{{s}}</ion-option>
-        </ion-select>
-      </ion-item>
-    </ion-list>
-
+        <ion-item>
+          <ion-label>Zip</ion-label>
+          <ion-input formControlName="zip" type="text"  ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>State</ion-label>
+          <ion-select formControlName="state">
+            <ion-option *ngFor="let s of states" >{{s}}</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
     <ion-list>
-      <ion-list-header>Truck summary</ion-list-header>
       <ion-item>
         <ion-label>Name</ion-label>
         <ion-input type="text" formControlName="name"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label>About</ion-label>
-        <ion-textarea formControlName="about"></ion-textarea>
+        <ion-label>Summary</ion-label>
+        <ion-textarea formControlName="summary" autosize></ion-textarea>
       </ion-item>
+      <ion-item>
+        <ion-label>Type</ion-label>
+        <ion-select  multiple="true" formControlName="type">
+          <ion-option *ngFor="let type of foodTruckTypes" >{{type}}</ion-option>
+        </ion-select>
+      </ion-item>
+
       <ion-grid>
         <ion-row>
           <ion-col col-6>
-            <ion-card class="ct-image-select" (click)="presentActionSheet(imageCard1)">
-              <button ion-button icon-only light clear color="dark" class="ct-btn-image" (click)="upload()">
+            <ion-card class="ct-image-select" >
+              <button ion-button icon-only [hidden] ="imageCard1_image" light clear color="dark" class="ct-btn-image" (click)="upload()">
                 <ion-icon name="close-circle"></ion-icon>
               </button>
-              <img #imageCard1 src="../assets/Image.png" />
+              <img (click)="presentActionSheet(imageCard1, $event)" id="imageCard1" #imageCard1 src="assets/Image.png" />
             </ion-card>
           </ion-col>
           <ion-col col-6>
-            <ion-card class="ct-image-select" (click)="presentActionSheet(imageCard2)">
-              <button ion-button icon-only light clear color="dark" class="ct-btn-image" (click)="upload()">
+            <ion-card class="ct-image-select" >
+              <button ion-button icon-only light clear color="dark" [hidden] ="imageCard2_image" class="ct-btn-image" (click)="upload()">
                 <ion-icon name="close-circle"></ion-icon>
               </button>
-              <img #imageCard2 src="../assets/Image.png" />
+              <img (click)="presentActionSheet(imageCard2, $event)" id="imageCard2" #imageCard2 src="assets/Image.png" />
             </ion-card>
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col col-6>
-            <ion-card class="ct-image-select" (click)="presentActionSheet(imageCard3)">
-              <button ion-button icon-only light clear color="dark" class="ct-btn-image" (click)="upload()">
+            <ion-card class="ct-image-select" >
+              <button ion-button icon-only light clear color="dark" [hidden] ="imageCard3_image" class="ct-btn-image" (click)="upload()">
                 <ion-icon name="close-circle"></ion-icon>
               </button>
-              <img #imageCard3 src="../assets/Image.png"/>
+              <img (click)="presentActionSheet(imageCard3, $event)" id="imageCard3" #imageCard3 src="assets/Image.png"/>
             </ion-card>
           </ion-col>
           <ion-col col-6>
-            <ion-card class="ct-image-select" (click)="presentActionSheet(imageCard4)">
-              <button ion-button icon-only light clear color="dark" class="ct-btn-image" (click)="upload()">
-                <ion-icon name="close-circle"></ion-icon>
+            <ion-card class="ct-image-select" >
+              <button ion-button icon-only light clear color="dark" [hidden] ="imageCard4_image" class="ct-btn-image" (click)="upload()">
+                <ion-icon  name="close-circle"></ion-icon>
               </button>
-              <img #imageCard4 src="../assets/Image.png" />
+              <img (click)="presentActionSheet(imageCard4, $event)" id="imageCard4" #imageCard4 src="assets/Image.png" />
             </ion-card>
           </ion-col>
         </ion-row>
@@ -85,13 +89,13 @@
     </ion-list>
     <ion-list>
       <ion-item>
-        <ion-toggle ></ion-toggle>
+        <ion-toggle formControlName="recommend" ></ion-toggle>
         <ion-label>Would you recommend?</ion-label>
       </ion-item>
     </ion-list>
     <ion-list>
       <ion-item>
-        <button ion-button type="submit" clear block>Save</button>
+        <button ion-button type="submit" clear block>Pin</button>
       </ion-item>
     </ion-list>
   </form>

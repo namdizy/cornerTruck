@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ViewController } from 'ionic-angular';
+import { FormBuilder, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'page-modal-filter',
@@ -7,28 +8,26 @@ import { NavController, NavParams, ViewController } from 'ionic-angular';
 })
 export class ModalFilterPage {
 
-  mapDistance: any;
-  hours: any = {
-    'lower': 6,
-    'upper': 10
-  };
-  cuisine: any;
+  filterForm: FormGroup;
+  foodTruckTypes: any = ["Mexican", "See food", "Chinese", "Thai", "Korean", "Japanese", "Icecream", "Special blend",
+    "Hot dogs"];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public  viewCtrl: ViewController) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, public  viewCtrl: ViewController,
+              public formBuilder: FormBuilder) {
+    this.filterForm = this.formBuilder.group({
+      distance: [''],
+      open: [true ],
+      rating: [''],
+      type: [[]],
+      verified: [true]
+    });
+  }
 
   ionViewDidLoad() {
-
-
     console.log('ionViewDidLoad ModalFilterPage');
   }
 
   dismiss() {
     this.viewCtrl.dismiss();
   }
-
-  setHours(){
-    console.log('change')
-    console.log(this.hours);
-  }
-
 }

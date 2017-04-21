@@ -6,6 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { Ng2OrderModule } from 'ng2-order-pipe';
 import { QRCodeModule } from 'angular2-qrcode';
+import { Autosize } from 'ionic2-autosize'
 
 import { MyApp } from './app.component';
 
@@ -37,7 +38,8 @@ import { PlacesService } from '../providers/services/places.service';
     ModalFilterPage,
     SearchPage,
     PinPinPage,
-    CheckInPage
+    CheckInPage,
+    Autosize
   ],
   imports: [
     IonicModule.forRoot(MyApp),
