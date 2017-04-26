@@ -20,6 +20,7 @@ import { ModalFilterPage } from '../pages/modals/modal-filter/modal-filter';
 import { SearchPage } from '../pages/search/search';
 import { PinPinPage } from '../pages/pin/pin-pin/pin-pin';
 import { CheckInPage } from '../pages/pin/check-in/check-in';
+import {FoodTruckProfilePage} from '../pages/foodTruckProfile/foodTruckProfile';
 
 import { Connectivity } from '../providers/connectivity';
 import { GoogleMaps } from '../providers/maps/google-maps'
@@ -39,6 +40,7 @@ import { PlacesService } from '../providers/services/places.service';
     SearchPage,
     PinPinPage,
     CheckInPage,
+    FoodTruckProfilePage,
     Autosize
   ],
   imports: [
@@ -62,7 +64,8 @@ import { PlacesService } from '../providers/services/places.service';
     ModalFilterPage,
     SearchPage,
     PinPinPage,
-    CheckInPage
+    CheckInPage,
+    FoodTruckProfilePage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Connectivity,
     GoogleMaps, YelpService, PlacesService ]
