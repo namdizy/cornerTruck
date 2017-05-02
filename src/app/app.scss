@@ -28,3 +28,58 @@
   background: rgba(0,0,0,0.5);
 }
 
+
+//============================= InfoBox Styling  for maps ======================================================
+
+.info-box-wrap {
+  background:#fff;
+  width: 100%;
+  padding: 0;
+  top: 0; right: 0; bottom: 0; left: 0;
+  box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.08);
+}
+.info-box-text-wrap {
+  width:100%;
+  float:left;
+  overflow: hidden;
+  padding:0 0 0 2%;
+  margin:0;
+}
+
+.info-box-text-wrap h6.name {
+  margin:0 0 0 0;
+  font-family:"Roboto Slab";
+  color: #0c99c8;
+  font-size: 0.8em;
+  overflow: hidden;
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.info-box-text-wrap p {
+  padding:0 0 0 0;
+  margin:0 0 0 0;
+}
+.info-box-text-wrap p.address {
+  color: gray;
+  font-size: 0.7em;
+  float: left;
+  width: 100%;
+}
+.info-box-text-wrap p.distance {
+  color: gray;
+  font-size: 0.7em;
+  float: left;
+  width: 20%;
+}
+.info-box-text-wrap p.open{
+  font-size: 0.7em;
+  float: right;
+}
+
+.gm-style-iw {
+  width: 1000px;
+  min-height: 30px;
+  padding: 0;
+  margin: 0;
+}

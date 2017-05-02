@@ -7,6 +7,8 @@ import { Events, ModalController } from 'ionic-angular';
 import { YelpService } from '../services/yelp.service';
 import { PlacesService } from '../services/places.service';
 
+
+
 declare let google;
 
 @Injectable()
@@ -112,15 +114,39 @@ export class GoogleMaps{
       title: place.name
     });
 
-    let infoWindow = new google.maps.InfoWindow({
-      content:  '<div class="map-content" onClick="test()" style="background:white;opacity:0.8;"><h3>' + place.name +
-                '</h3> <p style="color: #8e9093">'+place.distance*0.000621371 +'m away</p></div>'
+    console.log(place);
+    //let infoWindow = new google.maps.InfoWindow({
+    //  content:  '<div class="map-content" onClick="test()" style="background:white;opacity:0.8;"><h3>' + place.name +
+    //            '</h3> <p style="color: #8e9093">'+place.distance*0.000621371 +'m away</p></div>'
+    //});
+    let tempNum = place.distance*0.000621371;
+    let distance = parseFloat(tempNum.toString()).toFixed(2);
+    var boxText = document.createElement("div");
+    //boxText.style.cssText = "border: 1px solid black; margin-top: 8px; background: yellow; padding: 5px;";
+    boxText.innerHTML = '<div  class="row info-box-wrap">'+
+         '<div class="info-box-text-wrap">'+
+            '<h6 class="name">'+place.name+'</h6>'+
+            '<p class="address">7010 Sepulveda BLVD Van Nuys California</p>'+
+            '<p class="distance">'+distance+'m</p>'+
+            '<p class="open">open</p>'+
+         '</div>'+
+    '</div>';
+
+    boxText.addEventListener('click', ()=>{
+      console.log('clicked!!');
     });
 
+    var infowindow = new google.maps.InfoWindow({
+      content: boxText,
+
+    });
+
+
+
     marker.addListener('click', ()=> {
-      infoWindow.open(this.map, marker);
-      //let pageDetails = this.modalCtrl.create(ModalListPage);
-      //pageDetails.present();
+      infowindow.close();
+      infowindow.open(this.map, marker);
+
     });
 
     this.markers.push(marker);
