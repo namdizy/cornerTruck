@@ -1,0 +1,42 @@
+
+<ion-header no-border>
+  <ion-navbar>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="registerForm">
+    <ion-list>
+      <ion-item>
+        <ion-label floating>User Name</ion-label>
+        <ion-input type="text" formControlName="username"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>First Name</ion-label>
+        <ion-input type="text" formControlName="firstName"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Last Name</ion-label>
+        <ion-input type="text" formControlName="lastName"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Email</ion-label>
+        <ion-input type="email" formControlName="emailAddress"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Summary</ion-label>
+        <ion-textarea formControlName="bio" autosize></ion-textarea>
+      </ion-item>
+      <ion-list>
+        <ion-item>
+          <button ion-button type="submit" [disabled]="!registerForm.valid" clear block>Sign up</button>
+        </ion-item>
+      </ion-list>
+    </ion-list>
+  </form>
+
+</ion-content>

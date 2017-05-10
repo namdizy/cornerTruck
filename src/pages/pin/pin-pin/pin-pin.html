@@ -1,7 +1,7 @@
 <ion-content>
 
 
-  <form [formGroup]="pinForm">
+  <form [formGroup]="pinForm" (submit)="register()">
 
     <ion-list>
       <ion-item>
@@ -95,7 +95,7 @@
     </ion-list>
     <ion-list>
       <ion-item>
-        <button ion-button type="submit" clear block>Pin</button>
+        <button ion-button type="submit"  clear block>Pin</button>
       </ion-item>
     </ion-list>
   </form>

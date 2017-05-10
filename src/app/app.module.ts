@@ -3,6 +3,8 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { IonicStorageModule } from '@ionic/storage';
 
 import { Ng2OrderModule } from 'ng2-order-pipe';
 import { QRCodeModule } from 'angular2-qrcode';
@@ -20,12 +22,16 @@ import { ModalFilterPage } from '../pages/modals/modal-filter/modal-filter';
 import { SearchPage } from '../pages/search/search';
 import { PinPinPage } from '../pages/pin/pin-pin/pin-pin';
 import { CheckInPage } from '../pages/pin/check-in/check-in';
-import {FoodTruckProfilePage} from '../pages/foodTruckProfile/foodTruckProfile';
+import { FoodTruckProfilePage } from '../pages/foodTruckProfile/foodTruckProfile';
+import { LoginPage } from '../pages/login/login';
+import { RegisterPage } from '../pages/register/register';
+
 
 import { Connectivity } from '../providers/connectivity';
 import { GoogleMaps } from '../providers/maps/google-maps'
 import { YelpService } from '../providers/services/yelp.service';
 import { PlacesService } from '../providers/services/places.service';
+import { AuthService } from '../providers/services/authenticate.service'
 
 @NgModule({
   declarations: [
@@ -41,16 +47,20 @@ import { PlacesService } from '../providers/services/places.service';
     PinPinPage,
     CheckInPage,
     FoodTruckProfilePage,
+    LoginPage,
+    RegisterPage,
     Autosize
   ],
   imports: [
     IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot(),
     HttpModule,
     JsonpModule,
     Ng2OrderModule,
     MaterialModule,
     QRCodeModule,
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -65,9 +75,11 @@ import { PlacesService } from '../providers/services/places.service';
     SearchPage,
     PinPinPage,
     CheckInPage,
-    FoodTruckProfilePage
+    FoodTruckProfilePage,
+    LoginPage,
+    RegisterPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Connectivity,
-    GoogleMaps, YelpService, PlacesService ]
+    GoogleMaps, YelpService, PlacesService, AuthService ]
 })
 export class AppModule {}
