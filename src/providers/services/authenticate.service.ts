@@ -1,13 +1,17 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { Http, Headers,RequestOptions, Response } from '@angular/http';
 import { Storage } from '@ionic/storage';
 import { tokenNotExpired } from 'angular2-jwt';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class AuthService {
 
   public token: any;
+  DB_URL: string = "http://10.0.2.2:3000/auth/";
+  //DB_URL: string = 'http://localhost:3000/auth/';
 
   constructor(public http: Http, public storage: Storage) {}
 
@@ -16,52 +20,30 @@ export class AuthService {
   }
 
   createAccount(details){
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
 
-    return new Promise((resolve, reject) => {
-
-      let headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-
-      this.http.post('', JSON.stringify(details), {headers: headers})
-        .subscribe(res => {
-
-          let data = res.json();
-          this.token = data.token;
-          this.storage.set('ct-token', data.token);
-          resolve(data);
-
-        }, (err) => {
-          reject(err);
-        });
-
-    });
-
+    return this.http.post(this.DB_URL+ 'signup', details, options)
+                .toPromise()
+                .then(this.extractData)
+                .catch((error: any) => Observable.throw(error || 'Server error'));
   }
 
   login(credentials){
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
 
-    return new Promise((resolve, reject) => {
+    return this.http.post(this.DB_URL+'login', credentials, options)
+                .toPromise()
+                .then(this.extractData)
+                .catch((error: any) => Observable.throw(error || 'Server error'));
+    }
 
-      let headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-
-      this.http.post('', JSON.stringify(credentials), {headers: headers})
-        .subscribe(res => {
-
-          let data = res.json();
-          this.token = data.token;
-          this.storage.set('ct-token', data.token);
-          resolve(data);
-
-          resolve(res.json());
-        }, (err) => {
-          reject(err);
-        });
-
-    });
-
+  extractData(res: Response){
+    let data = res.json();
+    this.token = data.token;
+    this.storage.set('ct-token', data.token);
   }
-
   logout(){
     this.storage.set('ct-token', '');
   }

@@ -4,20 +4,26 @@
       LOGIN
     </ion-card-header>
     <ion-card-content>
-      <ion-list>
-        <ion-item>
-          <ion-label floating>Username</ion-label>
-          <ion-input type="text"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label floating>Password</ion-label>
-          <ion-input type="password"></ion-input>
-        </ion-item>
-      </ion-list>
-      <div padding>
-        <button ion-button color="primary" block>Sign in</button>
-        <button ion-button color="primary" (click)="goToRegisterPage()" clear block>Join us</button>
-      </div>
+      <form [formGroup]="loginForm" (submit)="login()">
+        <ion-list>
+          <ion-item>
+            <p class="danger" *ngIf="erroMsg"></p>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Username</ion-label>
+            <ion-input formControlName="username" type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Password</ion-label>
+            <ion-input formControlName="password" type="password"></ion-input>
+          </ion-item>
+        </ion-list>
+        <div padding>
+          <button ion-button color="primary" type="submit" block>Sign in</button>
+          <button ion-button color="primary" (click)="goToRegisterPage()" clear block>Join us</button>
+        </div>
+      </form>
+
     </ion-card-content>
   </ion-card>
 </ion-content>

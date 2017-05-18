@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content padding>
-  <form [formGroup]="registerForm">
+  <form [formGroup]="registerForm" (submit)="register()">
     <ion-list>
       <ion-item>
         <ion-label floating>User Name</ion-label>
