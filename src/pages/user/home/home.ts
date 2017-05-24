@@ -1,14 +1,14 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController, ModalController } from 'ionic-angular';
 
-import { GoogleMaps } from '../../providers/maps/google-maps';
+import { GoogleMaps } from '../../../providers/maps/google-maps';
 import { ModalListPage } from '../modals/modal-list/modal-list';
 import { ModalFilterPage } from '../modals/modal-filter/modal-filter';
 import { SearchPage } from '../search/search';
 
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html'
+  templateUrl: 'src/pages/user/home/home.html'
 })
 export class HomePage {
 

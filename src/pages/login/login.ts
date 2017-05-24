@@ -5,7 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RegisterPage } from '../register/register';
 import { AuthService } from '../../providers/services/authenticate.service';
 
-import { TabsPage } from '../tabs/tabs';
+import { TabsPage } from '../tabs/user/tabs';
 
 @Component({
   selector: 'page-login',
@@ -32,16 +32,19 @@ export class LoginPage {
   }
 
   login() {
-    this.showLoader();
-    this.auth.login(this.loginForm.value)
-      .then((res) =>{
-        this.loading.dismiss();
-        this.navCtrl.setRoot(TabsPage);
-      })
-      .catch((error) =>{
-        this.loading.dismiss();
-        this.erroMsg ="Incorrect password/username"
-      });
+    //this.showLoader();
+    //this.loading.dismiss();
+    this.navCtrl.setRoot(TabsPage);
+    //    this.navCtrl.setRoot(TabsPage);
+    //this.auth.login(this.loginForm.value)
+    //  .then((res) =>{
+    //    this.loading.dismiss();
+    //    this.navCtrl.setRoot(TabsPage);
+    //  })
+    //  .catch((error) =>{
+    //    this.loading.dismiss();
+    //    this.erroMsg ="Incorrect password/username"
+    //  });
   }
 
   showLoader(){

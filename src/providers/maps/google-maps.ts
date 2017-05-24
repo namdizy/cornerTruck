@@ -7,8 +7,6 @@ import { Events, ModalController } from 'ionic-angular';
 import { YelpService } from '../services/yelp.service';
 import { PlacesService } from '../services/places.service';
 
-
-
 declare let google;
 
 @Injectable()
@@ -30,7 +28,9 @@ export class GoogleMaps{
   }
 
   loadGoogleMaps(){
+    console.log('load google maps');
     this.events.subscribe('network:connected', (status) => {
+      console.log('load google maps event');
       if (!status) {
         this.disableMap();
       }

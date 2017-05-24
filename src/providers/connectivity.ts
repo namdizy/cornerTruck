@@ -16,10 +16,12 @@ export class Connectivity {
   }
 
   isOnline(): void {
+    console.log('connectivity service');
     if(this.onDevice && Network.type){
       console.log("connected!");
       this.events.publish('network:connected', Network.type !== Connection.NONE);
     } else {
+      console.log('else in connection');
       this.events.publish('network:connected', navigator.onLine);
     }
   }

@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ViewController } from 'ionic-angular';
 
-import { PlacesService } from '../../../providers/services/places.service';
+import { PlacesService } from '../../../../providers/services/places.service';
 
 
 @Component({
   selector: 'page-modal-list',
-  templateUrl: 'modal-list.html'
+  templateUrl: 'src/pages/user/modals/modal-list/modal-list.html'
 })
 export class ModalListPage {
   places: any;

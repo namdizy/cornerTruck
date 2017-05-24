@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'page-modal-filter',
-  templateUrl: 'modal-filter.html'
+  templateUrl: 'src/pages/user/modals/modal-filter/modal-filter.html'
 })
 export class ModalFilterPage {
 

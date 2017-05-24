@@ -8,15 +8,15 @@ import { NavController, NavParams } from 'ionic-angular';
   Ionic pages and navigation.
 */
 @Component({
-  selector: 'page-profile',
-  templateUrl: 'profile.html'
+  selector: 'page-food-truck-profile',
+  templateUrl: 'src/pages/foodtruck/profile/foodTruckProfile.html'
 })
-export class ProfilePage {
+export class FoodTruckProfilePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ProfilePage');
+    console.log('ionViewDidLoad FoodTruckProfilePage');
   }
 
 }

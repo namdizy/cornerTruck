@@ -1,0 +1,81 @@
+<ion-content >
+  <ion-card class="profile-details-card" >
+    <ion-card-content >
+
+      <div class="profile-picture-div">
+        <img class="profile-picture" src="assets/images/girl.jpg">
+      </div>
+      <div class="profile-details-name">
+        Jhamar Sanders
+      </div>
+      <div class="profile-details-tagline">
+        I'm a simple man, I see Mexican food, I buy!
+      </div>
+      <ion-card class="profile-info profile-info-pin" >
+        <div class="card-title">5000</div>
+        <div class="card-subtitle">PINS</div>
+      </ion-card>
+      <ion-card class="profile-info profile-info-points" >
+        <div class="card-title">400</div>
+        <div class="card-subtitle">POINTS</div>
+      </ion-card>
+      <ion-card class="profile-info profile-info-favorites">
+        <div class="card-title">14</div>
+        <div class="card-subtitle">FAVORITES</div>
+      </ion-card>
+    </ion-card-content>
+  </ion-card>
+  <ion-list >
+    <button ion-item (click)="pins()">
+      FRIENDS
+      <ion-icon showWhen="android, windows" name="arrow-forward" item-right></ion-icon>
+    </button>
+    <button ion-item (click)="checkins()">
+      CHECK INS
+      <ion-icon showWhen="android, windows" name="arrow-forward" item-right></ion-icon>
+    </button>
+    <button ion-item (click)="reviews()">
+      REVIEWS
+      <ion-icon showWhen="android, windows" name="arrow-forward" item-right></ion-icon>
+    </button>
+  </ion-list>
+  <ion-card>
+
+    <ion-item>
+      <ion-avatar item-left>
+        <img src="assets/images/girl.jpg">
+      </ion-avatar>
+      <h2>Marty McFly</h2>
+      <p>November 5, 1955</p>
+    </ion-item>
+
+    <img src="assets/images/girl.jpg">
+
+    <ion-card-content>
+      <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>
+    </ion-card-content>
+
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div>12 Likes</div>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="text"></ion-icon>
+          <div>4 Comments</div>
+        </button>
+      </ion-col>
+      <ion-col center text-center>
+        <ion-note>
+          11h ago
+        </ion-note>
+      </ion-col>
+    </ion-row>
+
+  </ion-card>
+
+
+</ion-content>

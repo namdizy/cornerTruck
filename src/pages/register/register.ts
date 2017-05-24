@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../providers/services/authenticate.service';
-import { TabsPage } from '../tabs/tabs';
+import { TabsPage } from '../tabs/user/tabs';
 
 @Component({
   selector: 'page-register',

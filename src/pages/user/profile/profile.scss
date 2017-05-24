@@ -1,0 +1,99 @@
+page-profile {
+
+  .profile-details-card{
+    height: 55%;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    background-color: #3271dc;
+
+    ion-card-content{
+      padding: 0;
+    }
+
+    .profile-picture-div{
+      border: 4px solid #e5e5e5;
+      width: 7.5em;
+      height: 7.5em;
+      margin: 10% 0 0 0;
+      display: inline-block;
+      border-radius: 50%;
+
+
+      .profile-picture{
+        border-radius: 50%;
+        width: 7em;
+        height: 7em;
+        display: inline-block;
+      }
+    }
+
+    .profile-details-name{
+      color: #e5e5e5;
+      font-size: x-large;
+    }
+
+    .profile-details-tagline{
+        color: #cccccc;
+        font-size: small;
+        font-family: 'Alegreya Sans', sans-serif;
+        font-style: italic;
+    }
+
+    .profile-info {
+      position: relative;
+      text-align: center;
+      width: 33.333333333%;
+      float: left;
+      border-radius: 0;
+      margin: 15% 0 0 0;
+      padding: 0.5em 0 0.5em 0;
+
+      .card-subtitle{
+        font-family: 'Alegreya Sans', sans-serif;
+        color: #cccccc;
+      }
+      .card-title{
+        color: #e5e5e5;
+      }
+    }
+
+    .profile-info-pin{
+      background-color: #4b8af6;
+    }
+    .profile-info-favorites{
+      background-color: #73a4f8;
+    }
+    .profile-info-points{
+      background-color: #5f97f7;
+    }
+
+    .card-title {
+
+    }
+
+    .card-subtitle {
+
+    }
+  }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
