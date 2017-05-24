@@ -6,7 +6,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 
 @Component({
   selector: 'page-pin-pin',
-  templateUrl: 'src/pages/user/pin/pin-pin/pin-pin.html',
+  templateUrl: 'pin-pin.html',
   providers: [Camera]
 
 })

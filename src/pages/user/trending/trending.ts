@@ -3,7 +3,7 @@ import { NavController } from 'ionic-angular';
 
 @Component({
   selector: 'page-trending',
-  templateUrl: 'src/pages/user/trending/trending.html'
+  templateUrl: 'trending.html'
 })
 export class TrendingPage {
 

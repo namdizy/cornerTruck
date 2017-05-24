@@ -9,7 +9,7 @@ import { NavController, NavParams } from 'ionic-angular';
 */
 @Component({
   selector: 'page-food-truck-profile',
-  templateUrl: 'src/pages/foodtruck/profile/foodTruckProfile.html'
+  templateUrl: 'foodTruckProfile.html'
 })
 export class FoodTruckProfilePage {
 

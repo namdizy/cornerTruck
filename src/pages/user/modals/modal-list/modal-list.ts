@@ -6,7 +6,7 @@ import { PlacesService } from '../../../../providers/services/places.service';
 
 @Component({
   selector: 'page-modal-list',
-  templateUrl: 'src/pages/user/modals/modal-list/modal-list.html'
+  templateUrl: 'modal-list.html'
 })
 export class ModalListPage {
   places: any;

@@ -12,19 +12,21 @@ import { Autosize } from 'ionic2-autosize'
 
 import { MyApp } from './app.component';
 
-import { TrendingPage } from '../pages/trending/trending';
-import { PinPage } from '../pages/pin/pin';
-import { HomePage } from '../pages/home/home';
-import { TabsPage } from '../pages/tabs/tabs';
-import { ProfilePage } from '../pages/profile/profile';
-import { ModalListPage } from '../pages/modals/modal-list/modal-list';
-import { ModalFilterPage } from '../pages/modals/modal-filter/modal-filter';
-import { SearchPage } from '../pages/search/search';
-import { PinPinPage } from '../pages/pin/pin-pin/pin-pin';
-import { CheckInPage } from '../pages/pin/check-in/check-in';
-import { FoodTruckProfilePage } from '../pages/foodTruckProfile/foodTruckProfile';
+import { TrendingPage } from '../pages/user/trending/trending';
+import { PinPage } from '../pages/user/pin/pin';
+import { HomePage } from '../pages/user/home/home';
+import { TabsPage } from '../pages/tabs/user/tabs';
+import { ProfilePage } from '../pages/user/profile/profile';
+import { ModalListPage } from '../pages/user/modals/modal-list/modal-list';
+import { ModalFilterPage } from '../pages/user/modals/modal-filter/modal-filter';
+import { SearchPage } from '../pages/user/search/search';
+import { PinPinPage } from '../pages/user/pin/pin-pin/pin-pin';
+import { CheckInPage } from '../pages/user/pin/check-in/check-in';
+import { FoodTruckProfilePage } from '../pages/foodtruck/profile/foodTruckProfile';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
+
+import { Popover } from '../components/popover/popover';
 
 
 import { Connectivity } from '../providers/connectivity';
@@ -49,7 +51,8 @@ import { AuthService } from '../providers/services/authenticate.service'
     FoodTruckProfilePage,
     LoginPage,
     RegisterPage,
-    Autosize
+    Autosize,
+    Popover
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -77,7 +80,8 @@ import { AuthService } from '../providers/services/authenticate.service'
     CheckInPage,
     FoodTruckProfilePage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    Popover
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Connectivity,
     GoogleMaps, YelpService, PlacesService, AuthService ]

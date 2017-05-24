@@ -8,6 +8,13 @@ page-profile {
     text-align: center;
     background-color: #3271dc;
 
+    .profile-btn-settings{
+      margin: 0;
+      position: absolute;
+      right:1%;
+      top: 1%;
+    }
+
     ion-card-content{
       padding: 0;
     }

@@ -6,7 +6,7 @@ import { CheckInPage } from './check-in/check-in';
 
 @Component({
   selector: 'page-pin',
-  templateUrl: 'src/pages/user/pin/pin.html'
+  templateUrl: 'pin.html'
 })
 export class PinPage {
 

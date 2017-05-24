@@ -8,7 +8,7 @@ import { SearchPage } from '../search/search';
 
 @Component({
   selector: 'page-home',
-  templateUrl: 'src/pages/user/home/home.html'
+  templateUrl: 'home.html'
 })
 export class HomePage {
 

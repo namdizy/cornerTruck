@@ -1,7 +1,9 @@
 <ion-content >
   <ion-card class="profile-details-card" >
     <ion-card-content >
-
+        <button ion-button icon-only clear color="light" (click)="presentPopover($event)" class="profile-btn-settings">
+          <ion-icon name="more"></ion-icon>
+        </button>
       <div class="profile-picture-div">
         <img class="profile-picture" src="assets/images/girl.jpg">
       </div>

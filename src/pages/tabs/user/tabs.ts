@@ -10,7 +10,7 @@ import { Connectivity } from '../../../providers/connectivity';
 import { GoogleMaps } from '../../../providers/maps/google-maps';
 
 @Component({
-  templateUrl: 'src/pages/tabs/user/tabs.html'
+  templateUrl: 'tabs.html'
 })
 export class TabsPage {
   homeRoot: any = HomePage;

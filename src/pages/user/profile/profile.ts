@@ -1,16 +1,26 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, PopoverController } from 'ionic-angular';
+
+import { Popover } from '../../../components/popover/popover';
+
 
 @Component({
   selector: 'page-profile',
-  templateUrl: 'src/pages/user/profile/profile.html'
+  templateUrl: 'profile.html'
 })
 export class ProfilePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, private popoverCtrl: PopoverController) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ProfilePage');
+  }
+
+  presentPopover(ev) {
+    let popover = this.popoverCtrl.create(Popover);
+
+    popover.present({
+      ev: ev
+    });
   }
 
   checkins(){
