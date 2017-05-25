@@ -17,8 +17,6 @@ import { PinPage } from '../pages/user/pin/pin';
 import { HomePage } from '../pages/user/home/home';
 import { TabsPage } from '../pages/tabs/user/tabs';
 import { ProfilePage } from '../pages/user/profile/profile';
-import { ModalListPage } from '../pages/user/modals/modal-list/modal-list';
-import { ModalFilterPage } from '../pages/user/modals/modal-filter/modal-filter';
 import { SearchPage } from '../pages/user/search/search';
 import { PinPinPage } from '../pages/user/pin/pin-pin/pin-pin';
 import { CheckInPage } from '../pages/user/pin/check-in/check-in';
@@ -26,7 +24,12 @@ import { FoodTruckProfilePage } from '../pages/foodtruck/profile/foodTruckProfil
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 
+import { ModalListPage } from '../pages/user/modals/list/modal-list';
+import { ModalFilterPage } from '../pages/user/modals/filter/modal-filter';
+import { ProfileEditPage } from '../pages/user/profile-edit/profile-edit';
+import { SettingsPage } from '../pages/user/settings/settings';
 import { Popover } from '../components/popover/popover';
+
 
 
 import { Connectivity } from '../providers/connectivity';
@@ -52,7 +55,9 @@ import { AuthService } from '../providers/services/authenticate.service'
     LoginPage,
     RegisterPage,
     Autosize,
-    Popover
+    Popover,
+    SettingsPage,
+    ProfileEditPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -81,7 +86,9 @@ import { AuthService } from '../providers/services/authenticate.service'
     FoodTruckProfilePage,
     LoginPage,
     RegisterPage,
-    Popover
+    Popover,
+    ProfileEditPage,
+    SettingsPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Connectivity,
     GoogleMaps, YelpService, PlacesService, AuthService ]

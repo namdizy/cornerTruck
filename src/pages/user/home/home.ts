@@ -2,8 +2,8 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController, ModalController } from 'ionic-angular';
 
 import { GoogleMaps } from '../../../providers/maps/google-maps';
-import { ModalListPage } from '../modals/modal-list/modal-list';
-import { ModalFilterPage } from '../modals/modal-filter/modal-filter';
+import { ModalListPage } from '../modals/list/modal-list';
+import { ModalFilterPage } from '../modals/filter/modal-filter';
 import { SearchPage } from '../search/search';
 
 @Component({
