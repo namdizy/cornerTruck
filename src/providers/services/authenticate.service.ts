@@ -9,7 +9,6 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class AuthService {
 
-  public token: any;
   //DB_URL: string = "http://10.0.2.2:3000/auth/";
   DB_URL: string = 'http://localhost:3000/auth/';
 
@@ -40,16 +39,10 @@ export class AuthService {
     }
 
   extractData(res: Response){
-    console.log(res);
     let body = res.json();
     console.log(body.token);
-    this.token = body.token;
-    this.storage.set('ct-token', this.token);
-    return body || { };
-    //this.token = data.token;
-    //console.log(data.token);
-    //his.storage.set('ct-token', this.token);
-
+    //this.storage.set('ct-token', body.token);
+    return body.token || { };
   }
   logout(){
     this.storage.set('ct-token', '');

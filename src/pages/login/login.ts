@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Storage } from '@ionic/storage';
 
 import { RegisterPage } from '../register/register';
 import { AuthService } from '../../providers/services/authenticate.service';
@@ -19,7 +20,7 @@ export class LoginPage {
   loginSegment: any;
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage,
               public formBuilder: FormBuilder, public auth: AuthService, public loadingCtrl: LoadingController) {
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
@@ -34,10 +35,6 @@ export class LoginPage {
     this.loginSegment = 'users';
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad Login');
-  }
-
   goToRegisterPage(){
     console.log("resgister function");
     this.navCtrl.push(RegisterPage);
@@ -47,6 +44,7 @@ export class LoginPage {
     this.showLoader();
     this.auth.login(this.loginForm.value)
       .then((res) =>{
+        this.storage.set('ct-token', res)
         this.loading.dismiss();
         this.navCtrl.setRoot(TabsPage);
       })
