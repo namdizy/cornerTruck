@@ -28,14 +28,11 @@ export class GoogleMaps{
   }
 
   loadGoogleMaps(){
-    console.log('load google maps');
     this.events.subscribe('network:connected', (status) => {
-      console.log('load google maps event');
       if (!status) {
         this.disableMap();
       }
       else {
-        console.log("start map init loodgoogle maps")
         this.initMap().then(() => {
           this.enableMap();
         })
@@ -114,11 +111,7 @@ export class GoogleMaps{
       title: place.name
     });
 
-    console.log(place);
-    //let infoWindow = new google.maps.InfoWindow({
-    //  content:  '<div class="map-content" onClick="test()" style="background:white;opacity:0.8;"><h3>' + place.name +
-    //            '</h3> <p style="color: #8e9093">'+place.distance*0.000621371 +'m away</p></div>'
-    //});
+
     let tempNum = place.distance*0.000621371;
     let distance = parseFloat(tempNum.toString()).toFixed(2);
     var boxText = document.createElement("div");

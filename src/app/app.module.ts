@@ -9,6 +9,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { Ng2OrderModule } from 'ng2-order-pipe';
 import { QRCodeModule } from 'angular2-qrcode';
 import { Autosize } from 'ionic2-autosize'
+import { EqualTextValidator } from 'angular2-text-equality-validator';
 
 import { MyApp } from './app.component';
 
@@ -28,8 +29,11 @@ import { ModalListPage } from '../pages/user/modals/list/modal-list';
 import { ModalFilterPage } from '../pages/user/modals/filter/modal-filter';
 import { ProfileEditPage } from '../pages/user/profile-edit/profile-edit';
 import { SettingsPage } from '../pages/user/settings/settings';
+import { AboutPage } from '../pages/user/settings/about/about';
+import { PrivacyPage } from '../pages/user/settings/privacy/privacy';
+import { ChangePasswordPage } from '../pages/user/settings/change-password/change-password';
+import { FeedbackPage } from '../pages/user/settings/feedback/feedback';
 import { Popover } from '../components/popover/popover';
-
 
 
 import { Connectivity } from '../providers/connectivity';
@@ -55,9 +59,14 @@ import { AuthService } from '../providers/services/authenticate.service'
     LoginPage,
     RegisterPage,
     Autosize,
+    EqualTextValidator,
     Popover,
     SettingsPage,
-    ProfileEditPage
+    ProfileEditPage,
+    AboutPage,
+    PrivacyPage,
+    ChangePasswordPage,
+    FeedbackPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -88,7 +97,11 @@ import { AuthService } from '../providers/services/authenticate.service'
     RegisterPage,
     Popover,
     ProfileEditPage,
-    SettingsPage
+    SettingsPage,
+    AboutPage,
+    PrivacyPage,
+    ChangePasswordPage,
+    FeedbackPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Connectivity,
     GoogleMaps, YelpService, PlacesService, AuthService ]

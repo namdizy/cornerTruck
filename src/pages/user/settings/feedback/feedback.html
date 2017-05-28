@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Send Feedback
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="ct-bug">
+    <p>If you have a bug or issue you want yo report, fill out the form below.</p>
+  </div>
+  <form [formGroup]="feedbackForm"  (submit)="submit()">
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Subject</ion-label>
+        <ion-input formControlName="subject" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Describe the issue</ion-label>
+        <ion-textarea formControlName="issue" autosize></ion-textarea>
+      </ion-item>
+    </ion-list>
+    <div class="ct-cantrespond">
+      <p>We cant respond to all of our feedback, but we will read your message</p>
+    </div>
+    <div padding>
+      <button ion-button color="primary" type="submit" block>SEND</button>
+    </div>
+  </form>
+</ion-content>

@@ -14,34 +14,28 @@
     </ion-list-header>
     <ion-item>
       <ion-toggle></ion-toggle>
-      <ion-label>Trucks</ion-label>
+      <ion-label>On</ion-label>
     </ion-item>
-    <ion-item>
-      <ion-toggle></ion-toggle>
-      <ion-label>Another</ion-label>
-    </ion-item>
-
   </ion-list>
   <ion-list>
     <ion-list-header>
-      Legal
+      More Information
     </ion-list-header>
-    <ion-item>Privacy Policy</ion-item>
-    <ion-item>Terms of Service</ion-item>
-    <ion-item>About</ion-item>
+    <ion-item (click) = "goToPrivacy()">Privacy Policy & Terms of Service</ion-item>
+    <ion-item (click)="goToAbout()">About</ion-item>
   </ion-list>
   <ion-list>
     <ion-list-header>
-      Lets Talk!
+      Support
     </ion-list-header>
-    <ion-item>Send us feedback</ion-item>
+    <ion-item (click) = "goToFeedback()">Send us feedback</ion-item>
     <ion-item>Help</ion-item>
   </ion-list>
   <ion-list>
     <ion-list-header>
       Account
     </ion-list-header>
-    <ion-item>Change Password</ion-item>
+    <ion-item (click)="goToChangePassword()">Change Password</ion-item>
     <ion-item>Deactivate Account</ion-item>
   </ion-list>
   <ion-list>

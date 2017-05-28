@@ -14,13 +14,24 @@ import { TabsPage } from '../tabs/user/tabs';
 export class LoginPage {
   loading: any;
   loginForm: FormGroup;
-  erroMsg: any
+  loginTruckForm: FormGroup;
+  erroMsg: any;
+  loginSegment: any;
+
+
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public formBuilder: FormBuilder, public auth: AuthService, public loadingCtrl: LoadingController) {
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
+
+    this.loginTruckForm = this.formBuilder.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required]
+    });
+
+    this.loginSegment = 'users';
   }
 
   ionViewDidLoad() {
@@ -28,23 +39,25 @@ export class LoginPage {
   }
 
   goToRegisterPage(){
+    console.log("resgister function");
     this.navCtrl.push(RegisterPage);
   }
 
   login() {
-    //this.showLoader();
-    //this.loading.dismiss();
+    this.showLoader();
+    this.auth.login(this.loginForm.value)
+      .then((res) =>{
+        this.loading.dismiss();
+        this.navCtrl.setRoot(TabsPage);
+      })
+      .catch((error) =>{
+        this.loading.dismiss();
+        this.erroMsg ="Incorrect password/username"
+      });
+  }
+
+  loginTrucks(){
     this.navCtrl.setRoot(TabsPage);
-    //    this.navCtrl.setRoot(TabsPage);
-    //this.auth.login(this.loginForm.value)
-    //  .then((res) =>{
-    //    this.loading.dismiss();
-    //    this.navCtrl.setRoot(TabsPage);
-    //  })
-    //  .catch((error) =>{
-    //    this.loading.dismiss();
-    //    this.erroMsg ="Incorrect password/username"
-    //  });
   }
 
   showLoader(){
@@ -53,7 +66,6 @@ export class LoginPage {
     });
 
     this.loading.present();
-
   }
 
 }

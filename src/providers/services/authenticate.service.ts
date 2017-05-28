@@ -10,8 +10,8 @@ import 'rxjs/add/operator/toPromise';
 export class AuthService {
 
   public token: any;
-  DB_URL: string = "http://10.0.2.2:3000/auth/";
-  //DB_URL: string = 'http://localhost:3000/auth/';
+  //DB_URL: string = "http://10.0.2.2:3000/auth/";
+  DB_URL: string = 'http://localhost:3000/auth/';
 
   constructor(public http: Http, public storage: Storage) {}
 
@@ -40,9 +40,16 @@ export class AuthService {
     }
 
   extractData(res: Response){
-    let data = res.json();
-    this.token = data.token;
-    this.storage.set('ct-token', data.token);
+    console.log(res);
+    let body = res.json();
+    console.log(body.token);
+    this.token = body.token;
+    this.storage.set('ct-token', this.token);
+    return body || { };
+    //this.token = data.token;
+    //console.log(data.token);
+    //his.storage.set('ct-token', this.token);
+
   }
   logout(){
     this.storage.set('ct-token', '');
