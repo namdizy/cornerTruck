@@ -67,6 +67,8 @@ export class GoogleMaps{
       this.yelpService.findPlaces(request).subscribe(data => {
           this.places = data;
           this.placesService.setPlaces(data);
+          console.log("google maps services");
+          console.log(this.places);
           this.mapPlaces(data);
         },
         err => {

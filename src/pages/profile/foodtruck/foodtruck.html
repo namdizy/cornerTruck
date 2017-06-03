@@ -1,0 +1,57 @@
+
+<ion-content class="" >
+
+  <ion-card class="foodtruck-profile-card">
+    <ion-navbar>
+    </ion-navbar>
+    <ion-fab right top>
+      <button ion-fab mini>
+        <ion-icon name="navigate"></ion-icon>
+      </button>
+    </ion-fab>
+    <div>
+      <img class="foodtruck-profile-image" [src]=truck?.image_url>
+    </div>
+    <div class="foodtruck-profile-name">{{truck?.name}}</div>
+    <div class="foodtruck-profile-address">{{truck?.location.address1}}</div>
+    <div class="foodtruck-profile-distance">{{truck?.distance * 0.000621371 | number:'1.2-2'}}m away</div>
+
+    <ion-card class="foodtruck-profile-btn" >
+      <div class="card-text">Favorite</div>
+    </ion-card>
+    <ion-card class="foodtruck-profile-btn" >
+      <div class="card-text">Review</div>
+    </ion-card>
+    <ion-card class="foodtruck-profile-btn">
+      <div class="card-text">CheckIn</div>
+    </ion-card>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      Reviews
+    </ion-card-header>
+    <ion-card-content>
+      <div class="">Opps!! Looks like this is not a partner truck. Nothing to see here...</div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      Pins
+    </ion-card-header>
+    <ion-card-content>
+      <div class="">Opps!! Looks like this is not a partner truck. Nothing to see here...</div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      Images
+    </ion-card-header>
+    <ion-card-content>
+      <div class="">Opps!! Looks like this is not a partner truck. Nothing to see here...</div>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

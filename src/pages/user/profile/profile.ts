@@ -14,7 +14,6 @@ import { JwtHelper } from 'angular2-jwt'
 export class ProfilePage {
 
   jwtHelper: JwtHelper = new JwtHelper();
-  token: any;
   tokenTest: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
@@ -25,6 +24,7 @@ export class ProfilePage {
   ionViewWillEnter(){
     this.storage.get('ct-token').then((value) => {
       console.log(value);
+      console.log(this.jwtHelper.decodeToken(value));
     });
   }
 

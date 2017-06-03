@@ -22,4 +22,8 @@ export class ModalListPage {
     this.viewCtrl.dismiss();
   }
 
+  goToFoodtruckProfile(place){
+    this.navCtrl.push("Foodtruck", {truck: place});
+  }
+
 }

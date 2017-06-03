@@ -1,0 +1,55 @@
+page-foodtruck {
+  .foodtruck-profile-card {
+    background-color: #ff3232;
+    height: 55%;
+    text-align: center;
+
+    .foodtruck-profile-image {
+      width: 9em;
+      height: 9em;
+      display: inline-block;
+      margin-top: 10%;
+      border: 4px solid #e5e5e5;
+    }
+    .foodtruck-profile-name {
+      display: inline-block;
+      color: #e5e5e5;
+      font-size: x-large;
+      width: 100%;
+    }
+
+    .foodtruck-profile-address {
+      display: inline-block;
+      color: #cccccc;
+      font-size: large;
+      font-family: 'Alegreya Sans', sans-serif;
+      font-style: italic;
+      width: 100%;
+    }
+
+    .foodtruck-profile-distance {
+      width: 100%;
+      display: inline-block;
+      color: #cccccc;
+      font-size: small;
+      font-family: 'Alegreya Sans', sans-serif;
+      font-style: italic;
+    }
+
+    .foodtruck-profile-btn {
+      text-align: center;
+      width: 33.333333333%;
+      float: left;
+      border-radius: 0;
+      padding: 0.6em 0 0.6em 0;
+      background-color: #ff9999;
+      margin: 5% 0 0 0;
+
+      .card-text{
+        font-family: 'Alegreya Sans', sans-serif;
+        color: #cccccc;
+        font-size: larger;
+      }
+    }
+  }
+}

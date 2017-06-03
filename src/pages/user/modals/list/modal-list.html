@@ -21,7 +21,7 @@
       </ion-thumbnail>
       <h2>{{place.name}}</h2>
       <p>{{place.distance * 0.000621371 | number:'1.2-2'}}m away</p>
-      <button ion-button clear item-right>View</button>
+      <button ion-button clear (click)="goToFoodtruckProfile(place)" item-right>View</button>
     </ion-item>
   </ion-list>
 </ion-content>

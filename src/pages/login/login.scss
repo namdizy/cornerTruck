@@ -2,4 +2,21 @@ page-login {
   .ct-login-content{
     margin-top: 20%;
   }
+
+
+  .ct-error-message{
+    text-align: center;
+    width: 100%;
+    font-size: small;
+    background-color: #ffe5e5;
+    padding: 2%;
+    margin-top: 0px;
+
+    p{
+      display: inline-block;
+      color: #ff3232;
+      font-family: "Segoe UI", "Noto Sans", sans-serif;
+    }
+
+  }
 }

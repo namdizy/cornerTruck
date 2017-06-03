@@ -21,9 +21,10 @@ import { ProfilePage } from '../pages/user/profile/profile';
 import { SearchPage } from '../pages/user/search/search';
 import { PinPinPage } from '../pages/user/pin/pin-pin/pin-pin';
 import { CheckInPage } from '../pages/user/pin/check-in/check-in';
-import { FoodTruckProfilePage } from '../pages/foodtruck/profile/foodTruckProfile';
+import { FoodTruckProfilePage } from '../pages/foodtruck/profile/profile';
 import { LoginPage } from '../pages/login/login';
-import { RegisterPage } from '../pages/register/register';
+import { RegisterPage } from '../pages/register/user/register';
+import { RegisterFoodtruck } from '../pages/register/foodtruck/register';
 
 import { ModalListPage } from '../pages/user/modals/list/modal-list';
 import { ModalFilterPage } from '../pages/user/modals/filter/modal-filter';
@@ -66,7 +67,8 @@ import { AuthService } from '../providers/services/authenticate.service'
     AboutPage,
     PrivacyPage,
     ChangePasswordPage,
-    FeedbackPage
+    FeedbackPage,
+    RegisterFoodtruck
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -101,7 +103,8 @@ import { AuthService } from '../providers/services/authenticate.service'
     AboutPage,
     PrivacyPage,
     ChangePasswordPage,
-    FeedbackPage
+    FeedbackPage,
+    RegisterFoodtruck
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Connectivity,
     GoogleMaps, YelpService, PlacesService, AuthService ]

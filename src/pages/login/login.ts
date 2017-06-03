@@ -3,8 +3,9 @@ import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Storage } from '@ionic/storage';
 
-import { RegisterPage } from '../register/register';
+import { RegisterPage } from '../register/user/register';
 import { AuthService } from '../../providers/services/authenticate.service';
+import { RegisterFoodtruck } from '../register/foodtruck/register';
 
 import { TabsPage } from '../tabs/user/tabs';
 
@@ -36,26 +37,43 @@ export class LoginPage {
   }
 
   goToRegisterPage(){
-    console.log("resgister function");
     this.navCtrl.push(RegisterPage);
+  }
+
+  goToRegisterTruckPage(){
+    this.navCtrl.push(RegisterFoodtruck);
   }
 
   login() {
     this.showLoader();
-    this.auth.login(this.loginForm.value)
-      .then((res) =>{
-        this.storage.set('ct-token', res)
-        this.loading.dismiss();
-        this.navCtrl.setRoot(TabsPage);
-      })
-      .catch((error) =>{
-        this.loading.dismiss();
-        this.erroMsg ="Incorrect password/username"
-      });
+    if(this.loginForm.value.username === null  || this.loginForm.value.password === null){
+      this.erroMsg ="Please Enter password/username"
+    }
+    else{
+      this.auth.login(this.loginForm.value)
+        .then((res) =>{
+          this.storage.set('ct-token', res)
+          this.loading.dismiss();
+          this.navCtrl.setRoot(TabsPage);
+        })
+        .catch((error) =>{
+          this.loading.dismiss();
+          this.erroMsg ="Incorrect password/username"
+        });
+    }
+
   }
 
-  loginTrucks(){
-    this.navCtrl.setRoot(TabsPage);
+  foodTruckLogin(){
+    this.showLoader();
+    if(this.loginTruckForm.value.username === null || this.loginTruckForm.value.password === null){
+      this.erroMsg ="Please Enter password/username";
+    }
+    else{
+
+    }
+
+    //this.navCtrl.setRoot(TabsPage);
   }
 
   showLoader(){

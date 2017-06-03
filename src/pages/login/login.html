@@ -16,11 +16,11 @@
       </div>
 
       <div [ngSwitch]="loginSegment">
+        <div class="ct-error-message" *ngIf="erroMsg">
+          <p>{{erroMsg}}</p>
+        </div>
         <form [formGroup]="loginForm" *ngSwitchCase="'users'">
           <ion-list>
-            <ion-item>
-              <p class="danger" *ngIf="erroMsg"></p>
-            </ion-item>
             <ion-item>
               <ion-label floating>Username</ion-label>
               <ion-input formControlName="username" type="text"></ion-input>
@@ -31,7 +31,7 @@
             </ion-item>
           </ion-list>
           <div padding>
-            <button ion-button color="primary" (click)="login()"  block>Sign in</button>
+            <button ion-button color="primary" (click)="login()" [disabled]="!loginForm.valid"   block>Sign in</button>
             <button ion-button color="primary" (click)="goToRegisterPage()" clear block>Join us</button>
           </div>
         </form>
@@ -51,8 +51,8 @@
             </ion-item>
           </ion-list>
           <div padding>
-            <button ion-button color="primary"  block>Sign in</button>
-            <p>Register Online at CornerTruck.com</p>
+            <button ion-button color="primary"  (click)="foodTruckLogin()" block>Sign in</button>
+            <button ion-button color="primary" (click)="goToRegisterTruckPage()" clear block>Join us</button>
           </div>
         </form>
       </div>

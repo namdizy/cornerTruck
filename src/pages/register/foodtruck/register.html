@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-navbar>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="foodTruckForm" (submit)="register()">
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Truck Name</ion-label>
+        <ion-input type="text" formControlName="name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>User Name</ion-label>
+        <ion-input type="text" formControlName="username"></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-list>
+      <ion-item formGroupName="passwords">
+        <ion-label floating>Password</ion-label>
+        <ion-input type="password" formControlName="password" validateEqualTo="repeat"></ion-input>
+      </ion-item>
+      <ion-item formGroupName="passwords">
+        <ion-label floating>Re Enter Password</ion-label>
+        <ion-input type="password" formControlName="repeat"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Phone Number</ion-label>
+        <ion-input type="text" formControlName="phoneNumber"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Email</ion-label>
+        <ion-input type="email" formControlName="email"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item formGroupName="address">
+        <ion-label floating>Street</ion-label>
+        <ion-input type="text" formControlName="street"></ion-input>
+      </ion-item>
+      <ion-item formGroupName="address">
+        <ion-label floating>City</ion-label>
+        <ion-input formControlName="city"></ion-input>
+      </ion-item>
+      <ion-item formGroupName="address">
+        <ion-label floating>Zip</ion-label>
+        <ion-input formControlName="zip"></ion-input>
+      </ion-item>
+      <ion-item formGroupName="address">
+        <ion-label>State</ion-label>
+        <ion-select formControlName="state">
+          <ion-option *ngFor="let s of states" >{{s}}</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    <ion-list>
+      <ion-item>
+        <ion-label>Summary</ion-label>
+        <ion-textarea formControlName="summary" autosize></ion-textarea>
+      </ion-item>
+    </ion-list>
+    <ion-list>
+      <ion-item>
+        <button ion-button type="submit" [disabled]="!foodTruckForm.valid" clear block>Sign up</button>
+      </ion-item>
+    </ion-list>
+  </form>
+</ion-content>
