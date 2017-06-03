@@ -21,10 +21,12 @@ import { ProfilePage } from '../pages/user/profile/profile';
 import { SearchPage } from '../pages/user/search/search';
 import { PinPinPage } from '../pages/user/pin/pin-pin/pin-pin';
 import { CheckInPage } from '../pages/user/pin/check-in/check-in';
-import { FoodTruckProfilePage } from '../pages/foodtruck/profile/profile';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/user/register';
 import { RegisterFoodtruck } from '../pages/register/foodtruck/register';
+
+import { FoodTruckTabsPage } from '../pages/tabs/foodtruck/tabs';
+import { FoodTruckProfilePage } from '../pages/foodtruck/profile/profile'
 
 import { ModalListPage } from '../pages/user/modals/list/modal-list';
 import { ModalFilterPage } from '../pages/user/modals/filter/modal-filter';
@@ -35,7 +37,6 @@ import { PrivacyPage } from '../pages/user/settings/privacy/privacy';
 import { ChangePasswordPage } from '../pages/user/settings/change-password/change-password';
 import { FeedbackPage } from '../pages/user/settings/feedback/feedback';
 import { Popover } from '../components/popover/popover';
-
 
 import { Connectivity } from '../providers/connectivity';
 import { GoogleMaps } from '../providers/maps/google-maps'
@@ -68,7 +69,8 @@ import { AuthService } from '../providers/services/authenticate.service'
     PrivacyPage,
     ChangePasswordPage,
     FeedbackPage,
-    RegisterFoodtruck
+    RegisterFoodtruck,
+    FoodTruckTabsPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -104,7 +106,8 @@ import { AuthService } from '../providers/services/authenticate.service'
     PrivacyPage,
     ChangePasswordPage,
     FeedbackPage,
-    RegisterFoodtruck
+    RegisterFoodtruck,
+    FoodTruckTabsPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Connectivity,
     GoogleMaps, YelpService, PlacesService, AuthService ]

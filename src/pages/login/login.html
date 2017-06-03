@@ -39,9 +39,6 @@
         <form [formGroup]="loginTruckForm" (submit)="loginTrucks()" *ngSwitchCase="'trucks'">
           <ion-list>
             <ion-item>
-              <p class="danger" *ngIf="erroMsg"></p>
-            </ion-item>
-            <ion-item>
               <ion-label floating>Username</ion-label>
               <ion-input formControlName="username" type="text"></ion-input>
             </ion-item>

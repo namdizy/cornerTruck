@@ -7,7 +7,7 @@ import { Connectivity } from '../../../providers/connectivity';
 import { GoogleMaps } from '../../../providers/maps/google-maps';
 
 @Component({
-  templateUrl: 'tab.html'
+  templateUrl: 'tabs.html'
 })
 export class FoodTruckTabsPage {
   profileRoot: any = FoodTruckProfilePage;

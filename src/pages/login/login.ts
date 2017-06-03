@@ -41,7 +41,8 @@ export class LoginPage {
   }
 
   goToRegisterTruckPage(){
-    this.navCtrl.push(RegisterFoodtruck);
+    console.log("got to register truck");
+    //this.navCtrl.push(RegisterFoodtruck);
   }
 
   login() {

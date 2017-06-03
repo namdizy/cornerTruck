@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {  NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
+import { NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
 import { AuthService } from '../../../providers/services/authenticate.service';
@@ -60,12 +60,16 @@ export class RegisterFoodtruck {
     });
   }
 
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad FoodTruckProfilePage');
+  }
   register(){
     console.log(this.foodTruckForm);
 
     this.showLoaderCreatingAcc();
     this.auth.createAccount(this.foodTruckForm.value)
       .then((res) =>{
+        console.log(res);
         this.loading.dismiss();
         this.navCtrl.setRoot(FoodTruckTabsPage);
       })
