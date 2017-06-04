@@ -8,6 +8,7 @@ import { AuthService } from '../../providers/services/authenticate.service';
 import { RegisterFoodtruck } from '../register/foodtruck/register';
 
 import { TabsPage } from '../tabs/user/tabs';
+import { FoodTruckTabsPage } from '../tabs/foodtruck/tabs';
 
 @Component({
   selector: 'page-login',
@@ -41,8 +42,7 @@ export class LoginPage {
   }
 
   goToRegisterTruckPage(){
-    console.log("got to register truck");
-    //this.navCtrl.push(RegisterFoodtruck);
+    this.navCtrl.push(RegisterFoodtruck);
   }
 
   login() {
@@ -71,10 +71,13 @@ export class LoginPage {
       this.erroMsg ="Please Enter password/username";
     }
     else{
-
+      this.auth.foodTruckLogin(this.loginTruckForm.value)
+        .then((res) =>{
+          this.storage.set('ct-token', res)
+          this.loading.dismiss();
+          this.navCtrl.setRoot(FoodTruckTabsPage);
+        })
     }
-
-    //this.navCtrl.setRoot(TabsPage);
   }
 
   showLoader(){

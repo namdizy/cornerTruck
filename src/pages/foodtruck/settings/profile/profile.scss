@@ -1,0 +1,15 @@
+page-foodtruck-settings-profile{
+  .label-md{
+    margin: 0!important;
+  }
+
+  .ct-menu-item{
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    .ct-menu-price{
+      font-size: x-small;
+      color: #8e9093;
+    }
+  }
+}

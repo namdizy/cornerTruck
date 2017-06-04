@@ -6,11 +6,14 @@ import { Geolocation } from 'ionic-native';
 import { Events, ModalController } from 'ionic-angular';
 import { YelpService } from '../services/yelp.service';
 import { PlacesService } from '../services/places.service';
+import { Observable } from 'rxjs/Observable';
+import { Http, Response } from '@angular/http';
 
 declare let google;
 
 @Injectable()
 export class GoogleMaps{
+  url: string;
   mapElement: any;
   pleaseConnect: any;
   map: any;
@@ -18,9 +21,10 @@ export class GoogleMaps{
   markers: any = [];
   places: any = [];
 
-  constructor(private events: Events, public yelpService: YelpService, public placesService: PlacesService, public modalCtrl: ModalController){}
+  constructor(private events: Events, public yelpService: YelpService, public placesService: PlacesService,
+              public modalCtrl: ModalController, public http: Http){}
 
-  init(mapElement: any, pleaseConnect: any){
+  start(mapElement: any, pleaseConnect: any){
     this.mapElement = mapElement;
     this.pleaseConnect = pleaseConnect;
 
@@ -136,8 +140,6 @@ export class GoogleMaps{
 
     });
 
-
-
     marker.addListener('click', ()=> {
       infowindow.close();
       infowindow.open(this.map, marker);
@@ -147,7 +149,10 @@ export class GoogleMaps{
     this.markers.push(marker);
   }
 
-  test(){
-    console.log("clicked!!")
+  getLocation(address) :Observable<any>{
+    console.log(address);
+    this.url = 'https://maps.googleapis.com/maps/api/geocode/json?address='+address.street+', '+address.city;
+    return this.http.get(this.url).map((res:Response) => res.json())
+      .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 }

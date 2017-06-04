@@ -11,7 +11,7 @@ export class SearchPage {
   @ViewChild('searchBar') searchbar;
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
-  ionViewDidLoad(){
+  ionViewDidEnter(){
     setTimeout(() => {
       Keyboard.show(); // for android
       this.searchbar.setFocus();

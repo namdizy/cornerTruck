@@ -27,6 +27,10 @@ import { RegisterFoodtruck } from '../pages/register/foodtruck/register';
 
 import { FoodTruckTabsPage } from '../pages/tabs/foodtruck/tabs';
 import { FoodTruckProfilePage } from '../pages/foodtruck/profile/profile'
+import { FoodTruckSettingsPage } from '../pages/foodtruck/settings/settings';
+import { FoodTruckFeedPage } from '../pages/foodtruck/feed/feed';
+import { FoodTruckProfileSettingsPage } from '../pages/foodtruck/settings/profile/profile';
+import { FoodTruckAccountSettingsPage } from '../pages/foodtruck/settings/account/account';
 
 import { ModalListPage } from '../pages/user/modals/list/modal-list';
 import { ModalFilterPage } from '../pages/user/modals/filter/modal-filter';
@@ -70,7 +74,12 @@ import { AuthService } from '../providers/services/authenticate.service'
     ChangePasswordPage,
     FeedbackPage,
     RegisterFoodtruck,
-    FoodTruckTabsPage
+    FoodTruckTabsPage,
+    FoodTruckSettingsPage,
+    FoodTruckFeedPage,
+    FoodTruckProfileSettingsPage,
+    FoodTruckAccountSettingsPage
+
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -107,7 +116,11 @@ import { AuthService } from '../providers/services/authenticate.service'
     ChangePasswordPage,
     FeedbackPage,
     RegisterFoodtruck,
-    FoodTruckTabsPage
+    FoodTruckTabsPage,
+    FoodTruckSettingsPage,
+    FoodTruckFeedPage,
+    FoodTruckProfileSettingsPage,
+    FoodTruckAccountSettingsPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Connectivity,
     GoogleMaps, YelpService, PlacesService, AuthService ]

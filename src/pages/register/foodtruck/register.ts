@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
 import { AuthService } from '../../../providers/services/authenticate.service';
 import { CustomValidators } from '../../../providers/validator/CustomValidators';
+import { GoogleMaps } from '../../../providers/maps/google-maps';
 import { FoodTruck } from '../../../providers/interfaces/foodtruck';
 
 import { FoodTruckTabsPage } from '../../tabs/foodtruck/tabs';
@@ -26,7 +27,8 @@ export class RegisterFoodtruck {
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public formBuilder: FormBuilder,
-              public alertCtrl: AlertController, public loadingCtrl: LoadingController, public auth: AuthService) {
+              public alertCtrl: AlertController, public loadingCtrl: LoadingController, public auth: AuthService,
+              public mapsService: GoogleMaps) {
 
     this.foodtruck = {
       name: '',
@@ -65,19 +67,35 @@ export class RegisterFoodtruck {
   }
   register(){
     console.log(this.foodTruckForm);
-
     this.showLoaderCreatingAcc();
-    this.auth.createAccount(this.foodTruckForm.value)
-      .then((res) =>{
-        console.log(res);
-        this.loading.dismiss();
-        this.navCtrl.setRoot(FoodTruckTabsPage);
-      })
-      .catch((error) =>{
-        this.loading.dismiss();
-        this.showAlert(error);
-        this.alert.present();
-      });
+
+    this.foodtruck = this.foodTruckForm.value;
+    //this.foodtruck.password = this.foodTruckForm.value.passwords.password;
+
+    this.mapsService.getLocation(this.foodtruck.address).subscribe(data => {
+        console.log(data.results[0].geometry.location);
+
+        this.foodtruck.location = data.results[0].geometry.location;
+        console.log(this.foodtruck);
+
+        this.auth.createTruck(this.foodtruck)
+          .then((res) =>{
+            console.log(res);
+            this.loading.dismiss();
+            this.navCtrl.setRoot(FoodTruckTabsPage);
+          })
+          .catch((error) =>{
+            this.loading.dismiss();
+            this.showAlert(error);
+            this.alert.present();
+          });
+      },
+      err => {
+        console.log(err);
+      },
+    );
+
+
   }
 
   showLoaderCreatingAcc(){

@@ -1,14 +1,14 @@
 
 <ion-header>
   <ion-navbar>
-    <ion-searchbar #searchBar (ionInput)="getItems($event)" placeholder="Trucks near me .."></ion-searchbar>
+    <ion-searchbar #searchBar placeholder="Trucks near me .." autofocus></ion-searchbar>
   </ion-navbar>
 </ion-header>
 
 <ion-content >
   <ion-list>
-    <ion-item *ngFor="let item of items">
-      {{ item }}
+    <ion-item>
+
     </ion-item>
   </ion-list>
 </ion-content>

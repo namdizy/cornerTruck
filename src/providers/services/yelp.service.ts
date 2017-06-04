@@ -10,8 +10,8 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class YelpService{
   //DB_URL: string = "http://10.0.2.2:3000/api/places";
-  //DB_URL: string = "http://192.168.0.2:3000/api/places";
-  DB_URL: string = "http://172.31.99.103:3000/api/places"
+  DB_URL: string = "http://192.168.0.2:3000/api/places";
+  //DB_URL: string = "http://172.31.99.95:3000/api/places"
   //DB_URL: string = "http://localhost:3000/api/places";
   constructor(private http: Http){}
 

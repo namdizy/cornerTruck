@@ -36,7 +36,7 @@
           </div>
         </form>
 
-        <form [formGroup]="loginTruckForm" (submit)="loginTrucks()" *ngSwitchCase="'trucks'">
+        <form [formGroup]="loginTruckForm" *ngSwitchCase="'trucks'">
           <ion-list>
             <ion-item>
               <ion-label floating>Username</ion-label>
@@ -48,7 +48,7 @@
             </ion-item>
           </ion-list>
           <div padding>
-            <button ion-button color="primary"  (click)="foodTruckLogin()" block>Sign in</button>
+            <button ion-button color="primary" (click)="foodTruckLogin()" [disabled]="!loginTruckForm.valid"   block>Sign in</button>
             <button ion-button color="primary" (click)="goToRegisterTruckPage()" clear block>Join us</button>
           </div>
         </form>

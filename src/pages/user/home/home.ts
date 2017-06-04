@@ -20,8 +20,8 @@ export class HomePage {
 
   constructor(public navCtrl: NavController, public maps: GoogleMaps, public modalCtrl: ModalController) {}
 
-  ionViewDidLoad() {
-    this.maps.init(this.mapElement.nativeElement, this.pleaseConnect.nativeElement)
+  ionViewWillEnter() {
+    this.maps.start(this.mapElement.nativeElement, this.pleaseConnect.nativeElement)
   }
 
   loadListModal(){

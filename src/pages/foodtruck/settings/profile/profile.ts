@@ -1,11 +1,14 @@
+/**
+ * Created by Nnamdi on 6/3/2017.
+ */
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 @Component({
-  selector: 'page-foodtruck-profile',
+  selector: 'page-foodtruck-settings-profile',
   templateUrl: 'profile.html'
 })
-export class FoodTruckProfilePage {
+export class FoodTruckProfileSettingsPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
