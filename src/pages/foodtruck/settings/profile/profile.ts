@@ -16,5 +16,7 @@ export class FoodTruckProfileSettingsPage {
     console.log('ionViewDidLoad FoodTruckProfilePage');
   }
 
-
+  addMenu(){
+    this.navCtrl.push('AddMenu');
+  }
 }
