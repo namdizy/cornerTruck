@@ -88,3 +88,11 @@
   padding: 0;
   margin: 0;
 }
+//========================  STYLING TO CENTER CANCEL AND SAVE BTN ==================
+ct-btn-col6{
+  text-align: center;
+
+  button{
+    display: inline-block;
+  };
+}

@@ -1,11 +1,71 @@
 
-
 <ion-content>
   <ion-card>
     <ion-item>
       <ion-label> Open</ion-label>
-      <ion-toggle color="royal" checked="false"></ion-toggle>
+      <ion-toggle color="royal" [(ngModel)]="open"></ion-toggle>
     </ion-item>
+    <ion-list [hidden]="!open">
+      <ion-item>
+        <ion-toggle [(ngModel)]="useCurrentLocation"></ion-toggle>
+        <ion-label>Use Current location</ion-label>
+      </ion-item>
+    </ion-list>
+    <ion-list [hidden]="useCurrentLocation">
+      <br>
+      <ion-item>
+        <h2>Address</h2>
+        <button ion-button item-right clear icon-only (click)="addMenu()">
+          <ion-icon name="paper-plane"></ion-icon>
+        </button>
+      </ion-item>
+      <ion-item>
+        <ion-label>Street</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>City</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Zip</ion-label>
+        <ion-input type="text"  ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>State</ion-label>
+        <ion-select >
+          <ion-option *ngFor="let s of states" >{{s}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+    </ion-list>
+  </ion-card>
+  <ion-card>
+    <ion-item>
+      <h2>Promotion</h2>
+      <button ion-button item-right clear icon-only (click)="addMenu()">
+        <ion-icon name="paper-plane"></ion-icon>
+      </button>
+    </ion-item>
+    <ion-list>
+      <ion-item>
+        <ion-label stacked>Title</ion-label>
+        <ion-input type="text" [(ngModel)]="promotion.title"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Description</ion-label>
+        <ion-textarea [(ngModel)]="promotion.description" autosize></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <button ion-button item-right clear icon-only (click)="addImage()">
+          <ion-icon name="photos"></ion-icon>
+        </button>
+      </ion-item>
+    </ion-list>
+    <ion-list>
+    </ion-list>
   </ion-card>
 
   <ion-card>
@@ -17,29 +77,23 @@
     </ion-item>
     <ion-list>
       <ion-list-header>Tacos</ion-list-header>
-      <ion-item no-margin>
-        <ion-avatar item-left>
-          <img src="assets/images/tacos.jpg">
-        </ion-avatar>
+      <ion-item no-margin (click)="goToMenuDetails()">
         <ion-grid no-padding>
           <ion-row no-padding >
             <ion-col col-8 no-padding class="ct-menu-item" >Black Bean & Goat Cheese Nachos</ion-col>
             <ion-col col-4 no-padding class="ct-menu-item"><p class="ct-menu-price">$10.25 10ctp</p></ion-col>
           </ion-row>
         </ion-grid>
-        <p>I've had a pretty messed up day. If we just more text goes in here</p>
+        <p>This is some random text, that will serve as description for a food truck menu item</p>
       </ion-item>
       <ion-item>
-        <ion-avatar item-left>
-          <img src="assets/images/tacos.jpg">
-        </ion-avatar>
         <ion-grid no-padding>
           <ion-row no-padding >
             <ion-col col-8 no-padding class="ct-menu-item">Black Bean & Goat Cheese Nachos</ion-col>
             <ion-col col-4 no-padding class="ct-menu-item"><p class="ct-menu-price">$10.25 10ctp</p></ion-col>
           </ion-row>
         </ion-grid>
-        <p>I've had a pretty messed up day. If we just more text goes in here</p>
+        <p>Well now this is a very very special random text, that also serves as a placeholder.</p>
       </ion-item>
     </ion-list>
   </ion-card>

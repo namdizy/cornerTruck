@@ -9,29 +9,29 @@
         <ion-label>Use Current location</ion-label>
       </ion-item>
     </ion-list>
-      <ion-list formGroupName="address"  [hidden]="pinForm.controls.location.value">
-        <ion-list-header>Enter Address</ion-list-header>
-        <ion-item>
-          <ion-label>Street</ion-label>
-          <ion-input formControlName="street" type="text"></ion-input>
-        </ion-item>
+    <ion-list formGroupName="address"  [hidden]="pinForm.controls.location.value">
+      <ion-list-header>Enter Address</ion-list-header>
+      <ion-item>
+        <ion-label>Street</ion-label>
+        <ion-input formControlName="street" type="text"></ion-input>
+      </ion-item>
 
-        <ion-item>
-          <ion-label>City</ion-label>
-          <ion-input formControlName="city" type="text"></ion-input>
-        </ion-item>
+      <ion-item>
+        <ion-label>City</ion-label>
+        <ion-input formControlName="city" type="text"></ion-input>
+      </ion-item>
 
-        <ion-item>
-          <ion-label>Zip</ion-label>
-          <ion-input formControlName="zip" type="text"  ></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label>State</ion-label>
-          <ion-select formControlName="state">
-            <ion-option *ngFor="let s of states" >{{s}}</ion-option>
-          </ion-select>
-        </ion-item>
-      </ion-list>
+      <ion-item>
+        <ion-label>Zip</ion-label>
+        <ion-input formControlName="zip" type="text"  ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>State</ion-label>
+        <ion-select formControlName="state">
+          <ion-option *ngFor="let s of states" >{{s}}</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
     <ion-list>
       <ion-item>
         <ion-label>Name</ion-label>
