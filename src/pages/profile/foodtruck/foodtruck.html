@@ -1,57 +1,121 @@
 
-<ion-content class="" >
+<ion-header>
 
-  <ion-card class="foodtruck-profile-card">
-    <ion-navbar>
-    </ion-navbar>
-    <ion-fab right top>
-      <button ion-fab mini>
-        <ion-icon name="navigate"></ion-icon>
-      </button>
-    </ion-fab>
-    <div>
-      <img class="foodtruck-profile-image" [src]=truck?.image_url>
+  <ion-navbar class="nav-transparent no-border" color="dark">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class=" item-detail">
+  <!--header info-->
+  <div class="item-header" [ngStyle]="{'background-image': 'url(' + truck?.image_url + ')'}">
+    <div class="inner">
+      <div class="align-bottom" padding>
+        <h2 ion-text color="white">{{ truck?.name }}</h2>
+        <div>
+          <ion-icon name="md-star" color="white" *ngFor="let star of range(truck?.rating)"></ion-icon>
+          <ion-icon name="md-star" color="gray" *ngFor="let star of range(5 - truck?.rating)"></ion-icon>
+          <span ion-text color="white">{{ truck?.review_count }} reviews</span>
+        </div>
+        <div>
+          <span ion-text color="white">{{ truck?.distance * 0.000621371 | number:'1.2-2' }} m</span>
+        </div>
+      </div>
     </div>
-    <div class="foodtruck-profile-name">{{truck?.name}}</div>
-    <div class="foodtruck-profile-address">{{truck?.location.address1}}</div>
-    <div class="foodtruck-profile-distance">{{truck?.distance * 0.000621371 | number:'1.2-2'}}m away</div>
+  </div>
 
-    <ion-card class="foodtruck-profile-btn" >
-      <div class="card-text">Favorite</div>
-    </ion-card>
-    <ion-card class="foodtruck-profile-btn" >
-      <div class="card-text">Review</div>
-    </ion-card>
-    <ion-card class="foodtruck-profile-btn">
-      <div class="card-text">CheckIn</div>
-    </ion-card>
-  </ion-card>
+  <!--buttons-->
+  <ion-grid class="buttons border-bottom">
+    <ion-row>
+      <ion-col text-center>
+        <ion-icon name="ios-camera-outline" color="gray"></ion-icon>
+        <span ion-text color="gray">IMAGES</span>
+      </ion-col>
+      <ion-col text-center>
+        <ion-icon name="ios-bookmark-outline" color="gray"></ion-icon>
+        <span ion-text color="gray">FAVORITE</span>
+      </ion-col>
+      <ion-col text-center>
+        <ion-icon name="md-checkbox-outline" color="gray"></ion-icon>
+        <span ion-text color="gray">CHECKIN</span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-  <ion-card>
-    <ion-card-header>
-      Reviews
-    </ion-card-header>
-    <ion-card-content>
-      <div class="">Opps!! Looks like this is not a partner truck. Nothing to see here...</div>
-    </ion-card-content>
-  </ion-card>
 
-  <ion-card>
-    <ion-card-header>
-      Pins
-    </ion-card-header>
-    <ion-card-content>
-      <div class="">Opps!! Looks like this is not a partner truck. Nothing to see here...</div>
-    </ion-card-content>
-  </ion-card>
+  <!-- Show map here -->
+  <div id="map-detail"></div>
 
-  <ion-card>
-    <ion-card-header>
-      Images
-    </ion-card-header>
-    <ion-card-content>
-      <div class="">Opps!! Looks like this is not a partner truck. Nothing to see here...</div>
-    </ion-card-content>
-  </ion-card>
+  <!--Info-->
+  <div class="border-bottom" padding>
+    <div>{{ truck?.location.address1 }}</div>
+    <div>
+      <span class="text-sm" color="gray">Address</span>
+    </div>
+    <div margin-top>
+      <span>{{ truck?.display_phone }}</span>
+      <ion-icon class="pull-right" name="call" color="restaurant-color"></ion-icon>
+    </div>
+    <div>
+      <span class="text-sm" color="gray">Phone</span>
+    </div>
+  </div>
+
+  <!--&lt;!&ndash;Reviews&ndash;&gt;-->
+  <!--<div class="border-bottom" padding>-->
+    <!--<span ion-text color="gray">Reviews</span>-->
+    <!--<ion-grid>-->
+      <!--<ion-row>-->
+        <!--<ion-col width-33 class="middle-align">-->
+          <!--<span class="rating-value" color="restaurant-color">-->
+            <!--{{ restaurant.rating }}-->
+          <!--</span>-->
+        <!--</ion-col>-->
+        <!--<ion-col width-66>-->
+          <!--<div *ngFor="let value of ratingValues; let i = index">-->
+            <!--{{ i + 1 }}-->
+            <!--<ion-icon name="star" color="gray"></ion-icon>-->
+            <!--<span class="progress-bar restaurant-bg" [ngStyle]="{'width': value + 'rem'}"-->
+                  <!--color="restaurant-color"></span>-->
+          <!--</div>-->
+        <!--</ion-col>-->
+      <!--</ion-row>-->
+    <!--</ion-grid>-->
+  <!--</div>-->
+
+  <!--&lt;!&ndash;list of reviews&ndash;&gt;-->
+  <!--<ion-list margin-top class="list-full-border reviews">-->
+    <!--<div *ngFor="let review of restaurant.reviews">-->
+      <!--<ion-item text-wrap>-->
+        <!--<ion-avatar item-left>-->
+          <!--<img src="{{ review.avatar }}">-->
+        <!--</ion-avatar>-->
+        <!--<div class="author">-->
+          <!--<span>{{ review.username }}</span>-->
+          <!--<span ion-text color="gray">from {{ review.from }}</span>-->
+        <!--</div>-->
+        <!--<div class="text-sm">-->
+          <!--<ion-icon name="md-star" color="restaurant-color" *ngFor="let start of range(review.rating)"></ion-icon>-->
+        <!--</div>-->
+        <!--<div>-->
+          <!--<span ion-text color="gray">{{ review.content }}</span>-->
+        <!--</div>-->
+
+        <!--<div>Recommended for:</div>-->
+        <!--<div>-->
+        <!--<span *ngFor="let score of restaurant.scores">-->
+          <!--<span ion-text color="restaurant-color" *ngIf="score.id == review.recommended_for[0]">{{ score.name }},</span>-->
+        <!--</span>-->
+          <!--<span *ngFor="let score of restaurant.scores">-->
+          <!--<span ion-text color="restaurant-color" *ngIf="score.id == review.recommended_for[1]">{{ score.name }}</span>-->
+        <!--</span>-->
+        <!--</div>-->
+      <!--</ion-item>-->
+    <!--</div>-->
+  <!--</ion-list>-->
 
 </ion-content>

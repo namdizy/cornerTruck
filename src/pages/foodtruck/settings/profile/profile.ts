@@ -3,9 +3,8 @@
  */
 import { Component } from '@angular/core';
 import { NavController, NavParams, ActionSheetController } from 'ionic-angular';
-import { Http, Headers,RequestOptions, Response } from '@angular/http';
+import { Http, Response } from '@angular/http';
 import { Camera, CameraOptions } from '@ionic-native/camera';
-import {DateFormatter} from "@angular/common/src/pipes/intl";
 
 @Component({
   selector: 'page-foodtruck-settings-profile',
@@ -102,7 +101,7 @@ export class FoodTruckProfileSettingsPage {
         chunkedMode: false,
         mimeType: "image/jpg"
       };
-      
+
       this.http.post(this.DB_URL+'/upload', {file: this.base64Image}, options)
         .toPromise()
         .then((res: Response)=>{

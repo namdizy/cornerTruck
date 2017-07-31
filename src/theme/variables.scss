@@ -24,11 +24,23 @@ $font-path: "../assets/fonts";
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    #387ef5,
-  secondary:  #32db64,
-  danger:     #f53d3d,
-  light:      #f4f4f4,
-  dark:       #222
+  primary:          #EC327D,
+  secondary:        #32db64,
+  danger:           #f53d3d,
+  light:            #f4f4f4,
+  dark:             #222,
+  favorite:         #69BB7B,
+  bg-color:         #EEEEEE,
+  fb-color:         #3B5999,
+  gg-color:         #DA4537,
+  border-color:     #ECECEC,
+  gray:             #898989,
+  common-bg:        #F7F7F7,
+  white:            #FFFFFF,
+  restaurant-color: #FF6565,
+  hotel-color:      #0AC7B4,
+  attraction-color: #33B5E5,
+  light-blue:       #2FB4E5,
 );
 
 
