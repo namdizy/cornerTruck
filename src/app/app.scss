@@ -34,6 +34,14 @@
 }
 
 
+//============================= FONTS ===============================================
+
+@font-face{
+  font-family: "Tulpen One";
+  src: url('../assets/fonts/TulpenOne') format('woff2');
+}
+
+
 //============================= InfoBox Styling  for maps ===============================
 
 .info-box-wrap {
@@ -314,6 +322,7 @@ ion-slides {
 
   .item-header {
     height: 45%;
+    background-size: cover;
 
     .inner {
       position: relative;

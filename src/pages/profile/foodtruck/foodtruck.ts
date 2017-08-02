@@ -57,4 +57,9 @@ export class Foodtruck {
 
   }
 
+  checkInOnClick(){
+    console.log("this si a checkin page call");
+    this.navCtrl.push("CheckInPage");
+  }
+
 }

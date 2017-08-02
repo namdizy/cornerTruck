@@ -1,12 +1,11 @@
 {
   "name": "Corner Truck",
   "app_id": "",
-  "v2": true,
-  "typescript": true,
   "proxies": [
     {
       "path": "/auth",
       "proxyUrl": "http://localhost:3000/"
     }
-  ]
+  ],
+  "type": "ionic-angular"
 }

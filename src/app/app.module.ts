@@ -6,8 +6,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IonicStorageModule } from '@ionic/storage';
 
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { Camera } from '@ionic-native/camera';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { Network } from '@ionic-native/network';
+import { Keyboard } from '@ionic-native/keyboard';
+import { Geolocation } from '@ionic-native/geolocation';
+
+
 import { Ng2OrderModule } from 'ng2-order-pipe';
-import { QRCodeModule } from 'angular2-qrcode';
 import { Autosize } from 'ionic2-autosize'
 import { EqualTextValidator } from 'angular2-text-equality-validator';
 
@@ -19,8 +27,6 @@ import { HomePage } from '../pages/user/home/home';
 import { TabsPage } from '../pages/tabs/user/tabs';
 import { ProfilePage } from '../pages/user/profile/profile';
 import { SearchPage } from '../pages/user/search/search';
-import { PinPinPage } from '../pages/user/pin/pin-pin/pin-pin';
-import { CheckInPage } from '../pages/user/pin/check-in/check-in';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/user/register';
 import { RegisterFoodtruck } from '../pages/register/foodtruck/register';
@@ -59,8 +65,6 @@ import { AuthService } from '../providers/services/authenticate.service'
     ModalListPage,
     ModalFilterPage,
     SearchPage,
-    PinPinPage,
-    CheckInPage,
     FoodTruckProfilePage,
     LoginPage,
     RegisterPage,
@@ -88,7 +92,7 @@ import { AuthService } from '../providers/services/authenticate.service'
     JsonpModule,
     Ng2OrderModule,
     MaterialModule,
-    QRCodeModule,
+
     BrowserModule,
     BrowserAnimationsModule
   ],
@@ -103,8 +107,6 @@ import { AuthService } from '../providers/services/authenticate.service'
     ModalListPage,
     ModalFilterPage,
     SearchPage,
-    PinPinPage,
-    CheckInPage,
     FoodTruckProfilePage,
     LoginPage,
     RegisterPage,
@@ -122,7 +124,7 @@ import { AuthService } from '../providers/services/authenticate.service'
     FoodTruckProfileSettingsPage,
     FoodTruckAccountSettingsPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Connectivity,
-    GoogleMaps, YelpService, PlacesService, AuthService ]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Connectivity, Keyboard, Geolocation,
+    GoogleMaps, YelpService, PlacesService, AuthService, StatusBar, SplashScreen, Camera, BarcodeScanner, Network ]
 })
 export class AppModule {}

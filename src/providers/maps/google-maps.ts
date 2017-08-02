@@ -2,7 +2,7 @@
  * Created by Nnamdi on 3/15/2017.
  */
 import { Injectable } from '@angular/core';
-import { Geolocation } from 'ionic-native';
+import { Geolocation } from '@ionic-native/geolocation';
 import { Events, ModalController } from 'ionic-angular';
 import { YelpService } from '../services/yelp.service';
 import { PlacesService } from '../services/places.service';
@@ -22,7 +22,7 @@ export class GoogleMaps{
   places: any = [];
 
   constructor(private events: Events, public yelpService: YelpService, public placesService: PlacesService,
-              public modalCtrl: ModalController, public http: Http){}
+              public modalCtrl: ModalController, public http: Http, public geolocation: Geolocation){}
 
   start(mapElement: any, pleaseConnect: any){
     this.mapElement = mapElement;
@@ -45,7 +45,7 @@ export class GoogleMaps{
   }
 
   initMap(): Promise<any> {
-    return Geolocation.getCurrentPosition().then((position) => {
+    return this.geolocation.getCurrentPosition().then((position) => {
       this.mapInitialised = true;
       let location = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
@@ -64,7 +64,7 @@ export class GoogleMaps{
       let request = {
         latitude: position.coords.latitude.toString(),
         longitude: position.coords.longitude.toString(),
-        radius: '500',
+        radius: '5000',
         types: 'foodtrucks'
       };
 

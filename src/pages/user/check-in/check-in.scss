@@ -1,0 +1,29 @@
+page-check-in{
+  .ct-p-center{
+    width: 100%;
+    text-align: center;
+  }
+  ion-content{
+    background-image: url('../assets/images/gradient-background.jpg') ;
+    background-size: cover;
+  }
+  .checkIn-points{
+    text-align: center;
+
+    .checkIn-points-value{
+      font-size: 10em;
+      display: inline-block;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+
+    }
+    .checkIn-points-text{
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+
+}
