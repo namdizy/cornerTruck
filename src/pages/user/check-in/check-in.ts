@@ -21,4 +21,7 @@ export class CheckInPage {
     this.codeGenerated = true;
   }
 
+  redeem(){
+    this.navCtrl.push("RedeemPage");
+  }
 }

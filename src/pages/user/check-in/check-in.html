@@ -10,25 +10,31 @@
 </ion-header>
 
 <ion-content>
+  <ion-grid class="border-bottom">
+    <ion-row>
+      <ion-col col-8 text-center>
+        <span ion-text color="gray">You have earned 500 points</span>
+      </ion-col>
+        <ion-icon name="ios-basket-outline" color="gray"></ion-icon>
+        <span ion-text color="gray">REDEEM</span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-  <div class="checkIn-points">
-    <p primary class="checkIn-points-value" >245</p>
-    <p class="checkIn-points-text">POINTS</p>
-  </div>
-  <!--<ion-card>-->
-    <!--<ion-card-header>-->
-      <!--<div class="ct-btn-center">-->
-        <!--<button ion-button color="primary" (click)="generateQRCode()" outline>Generate QR Code</button>-->
-      <!--</div>-->
-    <!--</ion-card-header>-->
-    <!--<qr-code [value]="qrcode" size="250"></qr-code>-->
-    <!--<ion-card-content>-->
-      <!--<div class="ct-p-center" *ngIf="codeGenerated">-->
-        <!--<p>-->
-          <!--Scan QR Code to check in!-->
-        <!--</p>-->
-      <!--</div>-->
-    <!--</ion-card-content>-->
+  <ion-card>
+    <ion-card-header>
+      <div class="ct-btn-center">
+        <button ion-button color="primary" (click)="generateQRCode()" clear>Generate QR Code</button>
+      </div>
+    </ion-card-header>
+    <qr-code [value]="qrcode" size="250"></qr-code>
+    <ion-card-content>
+      <div class="ct-p-center" *ngIf="codeGenerated">
+        <p>
+          Scan QR Code to check in!
+        </p>
+      </div>
+    </ion-card-content>
 
-  <!--</ion-card>-->
+  </ion-card>
 </ion-content>
