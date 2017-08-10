@@ -6,7 +6,22 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class UserService {
-  signup(){
+  private userPoints: number;
+  private userItems: any[];
 
+  getUserPoints(){
+    return this.userPoints;
+  }
+
+  setUserPoints(points){
+    this.userPoints = points;
+  }
+
+  setUserItems(userItems){
+    this.userItems = userItems;
+  }
+
+  getUsetItems(){
+    return this.userItems;
   }
 }

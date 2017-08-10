@@ -11,9 +11,9 @@ export class AuthService {
 
   //DB_URL: string = "http://10.0.2.2:3000/auth/";
   //DB_URL: string = "http://192.168.0.2:3000/auth/";
-  DB_URL: string = "http://10.0.3.204:3000/auth/";
+  //DB_URL: string = "http://10.0.3.204:3000/auth/";
   //DB_URL: string = "http://10.0.3.177:3000/auth/"
-  //DB_URL: string = "http://172.31.99.95:3000/auth/";
+  DB_URL: string = "http://172.31.99.95:3000/auth/";
   //DB_URL: string = "http://localhost:3000/auth/";
 
 

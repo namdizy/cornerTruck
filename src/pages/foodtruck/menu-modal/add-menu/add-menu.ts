@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ViewController } from 'ionic-angular';
 
-@IonicPage()
 @Component({
   selector: 'page-add-menu',
   templateUrl: 'add-menu.html',
@@ -11,21 +10,25 @@ export class AddMenu {
   menuItem: any = {
     segment: '',
     description: '',
-    name: ''
+    name: '',
+    price: {
+      dollars: '',
+      points: ''
+    }
   };
 
   segmentModel: any;
   segmentsList: any = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AddMenu');
+
   }
 
   save(){
-    
+    this.viewCtrl.dismiss({menuItem: this.menuItem, segmentList: this.segmentsList });
   }
   back(){
     this.navCtrl.pop();

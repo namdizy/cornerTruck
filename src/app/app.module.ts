@@ -14,7 +14,6 @@ import { Network } from '@ionic-native/network';
 import { Keyboard } from '@ionic-native/keyboard';
 import { Geolocation } from '@ionic-native/geolocation';
 
-
 import { Ng2OrderModule } from 'ng2-order-pipe';
 import { Autosize } from 'ionic2-autosize'
 import { EqualTextValidator } from 'angular2-text-equality-validator';
@@ -48,11 +47,15 @@ import { ChangePasswordPage } from '../pages/user/settings/change-password/chang
 import { FeedbackPage } from '../pages/user/settings/feedback/feedback';
 import { Popover } from '../components/popover/popover';
 
+import { AddMenu } from '../pages/foodtruck/menu-modal/add-menu/add-menu';
+import { EditMenu } from '../pages/foodtruck/menu-modal/edit-menu/edit-menu';
+
 import { Connectivity } from '../providers/connectivity';
 import { GoogleMaps } from '../providers/maps/google-maps'
 import { YelpService } from '../providers/services/yelp.service';
 import { PlacesService } from '../providers/services/places.service';
-import { AuthService } from '../providers/services/authenticate.service'
+import { AuthService } from '../providers/services/authenticate.service';
+import { UserService } from '../providers/services/user.service';
 
 @NgModule({
   declarations: [
@@ -82,8 +85,9 @@ import { AuthService } from '../providers/services/authenticate.service'
     FoodTruckSettingsPage,
     FoodTruckFeedPage,
     FoodTruckProfileSettingsPage,
-    FoodTruckAccountSettingsPage
-
+    FoodTruckAccountSettingsPage,
+    AddMenu,
+    EditMenu
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -122,9 +126,11 @@ import { AuthService } from '../providers/services/authenticate.service'
     FoodTruckSettingsPage,
     FoodTruckFeedPage,
     FoodTruckProfileSettingsPage,
-    FoodTruckAccountSettingsPage
+    FoodTruckAccountSettingsPage,
+    AddMenu,
+    EditMenu
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Connectivity, Keyboard, Geolocation,
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Connectivity, Keyboard, Geolocation, UserService,
     GoogleMaps, YelpService, PlacesService, AuthService, StatusBar, SplashScreen, Camera, BarcodeScanner, Network ]
 })
 export class AppModule {}

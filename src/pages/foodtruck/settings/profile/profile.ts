@@ -2,9 +2,12 @@
  * Created by Nnamdi on 6/3/2017.
  */
 import { Component } from '@angular/core';
-import { NavController, NavParams, ActionSheetController } from 'ionic-angular';
+import { NavController, NavParams, ActionSheetController, ModalController } from 'ionic-angular';
 import { Http, Response } from '@angular/http';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+
+import { AddMenu } from '../../menu-modal/add-menu/add-menu';
+import { EditMenu } from '../../menu-modal/edit-menu/edit-menu';
 
 @Component({
   selector: 'page-foodtruck-settings-profile',
@@ -16,6 +19,9 @@ export class FoodTruckProfileSettingsPage {
   public base64Image: string;
   //DB_URL: string = "http://172.31.99.96:3000/api";
   DB_URL: string = "http://192.168.0.2:3000/api";
+
+  public menu: any = [];
+  public segments: any = [];
 
   promotion: any = {
     title: '',
@@ -35,8 +41,8 @@ export class FoodTruckProfileSettingsPage {
     "UT", "VT", "VA", "WA", "WV", "WI", "WY"];
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public actionSheetCtrl: ActionSheetController,
-              private camera: Camera, public http: Http) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController,
+              public actionSheetCtrl: ActionSheetController, private camera: Camera, public http: Http) {
 
   }
 
@@ -45,7 +51,14 @@ export class FoodTruckProfileSettingsPage {
   }
 
   addMenu(){
-    this.navCtrl.push('AddMenu');
+    //this.navCtrl.push('AddMenu');
+    let addModal = this.modalCtrl.create(AddMenu);
+    addModal.onDidDismiss(data => {
+      console.log(data);
+      this.menu.push(data.menuItem);
+      this.segments = data.segmentList;
+    });
+    addModal.present();
   }
 
   presentActionSheet(el: any){
@@ -120,7 +133,13 @@ export class FoodTruckProfileSettingsPage {
   removeImage(el: any){
 
   }
-  goToMenuDetails(){
-    this.navCtrl.push("EditMenu");
+  goToMenuDetails(menuItem){
+    console.log("in the go to edit menu call");
+    console.log(menuItem);
+    let editModal = this.modalCtrl.create(EditMenu, menuItem);
+    editModal.onDidDismiss(data => {
+      console.log(data);
+    });
+    editModal.present();
   }
 }

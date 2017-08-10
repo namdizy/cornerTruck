@@ -11,12 +11,17 @@
     <ion-item>
       <ion-label stacked>Segment</ion-label>
       <ion-select [(ngModel)]="menuItem.segment">
-        <ion-option *ngFor="let seg of segmentsList" value="">{{seg}}</ion-option>
+        <ion-option *ngFor="let seg of segmentsList" value="{{seg}}">{{seg}}</ion-option>
       </ion-select>
     </ion-item>
     <ion-item>
       <ion-label stacked>Name</ion-label>
       <ion-input type="text" placeholder="Fish Tacos" [(ngModel)]="menuItem.name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label >Price</ion-label>
+      <ion-input type="number" placeholder="$" [(ngModel)]="menuItem.price.dollars"></ion-input>
+      <ion-input type="number" placeholder="CPT" [(ngModel)]="menuItem.price.points"></ion-input>
     </ion-item>
   </ion-list>
   <ion-list>

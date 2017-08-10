@@ -16,74 +16,65 @@
 
 
 <ion-content >
-  <ion-scroll scrollY="true" style="width: 100%; height: 100%;" >
-    <ion-grid >
-      <ion-row class="buttons border-bottom">
-        <ion-col text-center>
-          <ion-row >
-            <ion-col text-left text-uppercase padding-left>
-              <span style="font-size: smaller" ion-text color="gray">Tacos</span>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col text-left padding-left>
-              <span ion-text color="primary">$1.5</span>
-              <span ion-text color="primary" padding-left>11.5 CTP</span>
-            </ion-col>
-          </ion-row>
-        </ion-col>
-        <ion-col text-center>
-          <ion-icon name="ios-remove-outline" color="gray"></ion-icon>
-          <span padding ion-text color="gray">0</span>
-          <ion-icon name="ios-add-outline" color="gray"></ion-icon>
-        </ion-col>
-      </ion-row>
-      <ion-row class="buttons border-bottom">
-        <ion-col text-center>
-          <ion-row >
-            <ion-col text-left text-uppercase padding-left>
-              <span style="font-size: smaller" ion-text color="gray">Tacos</span>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col text-left padding-left>
-              <span ion-text color="primary">$1.5</span>
-              <span ion-text color="primary" padding-left>11.5 CTP</span>
-            </ion-col>
-          </ion-row>
-        </ion-col>
-        <ion-col text-center>
-
-          <div class="center ">
-            <ion-icon name="ios-remove-outline" color="gray"></ion-icon>
-            <span padding ion-text color="gray">0</span>
-            <ion-icon name="ios-add-outline" color="gray"></ion-icon>
-          </div>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-scroll>
-
-  <div class="align-bottom border-top"  padding>
-    <ion-row>
-      <ion-col text-center>
-        <ion-row >
-          <ion-col text-left text-uppercase padding-left>
-            <span style="font-size: smaller" ion-text color="gray">Total</span>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col text-left padding-left>
-            <span ion-text color="primary">100 CPT</span>
-          </ion-col>
-        </ion-row>
-      </ion-col>
-      <ion-col text-center>
-        <button ion-button outline>REDEEM</button>
+  <ion-grid>
+    <ion-row class="align-top">
+      <ion-col col-8 text-center>
+        <span ion-text color="gray">You have earned {{availablePoints}} points</span>
       </ion-col>
     </ion-row>
-  </div>
+    <ion-row style="height: 370px;">
+      <ion-col >
+        <div style="height: 100%">
+          <ion-scroll scrollY="true"  style="width: 100%; height: 100%;">
+            <ion-row class="buttons border-bottom" *ngFor="let menuItem of menu">
+              <ion-col text-center>
+                <ion-row >
+                  <ion-col text-left text-uppercase padding-left>
+                    <span style="font-size: smaller" ion-text color="gray">{{menuItem.name}}</span>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col text-left padding-left>
+                    <span ion-text color="primary">${{menuItem.price.dollar}}</span>
+                    <span ion-text color="primary" padding-left>{{menuItem.price.points}} CPT</span>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+              <ion-col text-center>
+                <ion-icon (click)="remove(menuItem)" name="ios-remove-outline" color="gray"></ion-icon>
+                <span padding ion-text color="gray">{{menuItem.number}}</span>
+                <ion-icon (click)="add(menuItem)" name="ios-add-outline" color="gray"></ion-icon>
+              </ion-col>
+            </ion-row>
+          </ion-scroll>
+        </div>
 
+      </ion-col>
+    </ion-row>
+    <ion-row class="align-bottom border-top" >
+      <ion-col>
+        <div padding>
+          <ion-row>
+            <ion-col text-center>
+              <ion-row >
+                <ion-col text-left text-uppercase padding-left>
+                  <span style="font-size: smaller" ion-text color="gray">Total</span>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col text-left padding-left>
+                  <span ion-text color="primary">{{total}} CPT</span>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+            <ion-col text-center>
+              <button (click)="redeemPoints()" ion-button outline>REDEEM</button>
+            </ion-col>
+          </ion-row>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 
 </ion-content>

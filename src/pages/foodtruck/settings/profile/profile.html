@@ -90,23 +90,17 @@
     </ion-item>
     <ion-list>
       <ion-list-header>Tacos</ion-list-header>
-      <ion-item no-margin (click)="goToMenuDetails()">
+      <ion-item no-margin (click)="goToMenuDetails(menuItem)" *ngFor="let menuItem of menu">
         <ion-grid no-padding>
           <ion-row no-padding >
-            <ion-col col-8 no-padding class="ct-menu-item" >Black Bean & Goat Cheese Nachos</ion-col>
-            <ion-col col-4 no-padding class="ct-menu-item"><p class="ct-menu-price">$10.25 10ctp</p></ion-col>
+            <ion-col col-8 no-padding class="ct-menu-item" >{{menuItem.name}}</ion-col>
+            <ion-col col-4 no-padding class="ct-menu-item">
+              <span ion-text color="primary" class="ct-menu-price">${{menuItem.price.dollars}}</span>
+              <span ion-text color="primary" class="ct-menu-price" padding-left>{{menuItem.price.points}} CPT</span>
+            </ion-col>
           </ion-row>
         </ion-grid>
-        <p>This is some random text, that will serve as description for a food truck menu item</p>
-      </ion-item>
-      <ion-item>
-        <ion-grid no-padding>
-          <ion-row no-padding >
-            <ion-col col-8 no-padding class="ct-menu-item">Black Bean & Goat Cheese Nachos</ion-col>
-            <ion-col col-4 no-padding class="ct-menu-item"><p class="ct-menu-price">$10.25 10ctp</p></ion-col>
-          </ion-row>
-        </ion-grid>
-        <p>Well now this is a very very special random text, that also serves as a placeholder.</p>
+        <p>{{menuItem.description}}</p>
       </ion-item>
     </ion-list>
   </ion-card>
