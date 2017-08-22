@@ -34,6 +34,7 @@ import { FoodTruckTabsPage } from '../pages/tabs/foodtruck/tabs';
 import { FoodTruckProfilePage } from '../pages/foodtruck/profile/profile'
 import { FoodTruckSettingsPage } from '../pages/foodtruck/settings/settings';
 import { FoodTruckFeedPage } from '../pages/foodtruck/feed/feed';
+import { FoodTruckCheckInPage } from '../pages/foodtruck/checkIn/checkIn';
 import { FoodTruckProfileSettingsPage } from '../pages/foodtruck/settings/profile/profile';
 import { FoodTruckAccountSettingsPage } from '../pages/foodtruck/settings/account/account';
 
@@ -84,6 +85,7 @@ import { UserService } from '../providers/services/user.service';
     FoodTruckTabsPage,
     FoodTruckSettingsPage,
     FoodTruckFeedPage,
+    FoodTruckCheckInPage,
     FoodTruckProfileSettingsPage,
     FoodTruckAccountSettingsPage,
     AddMenu,
@@ -125,6 +127,7 @@ import { UserService } from '../providers/services/user.service';
     FoodTruckTabsPage,
     FoodTruckSettingsPage,
     FoodTruckFeedPage,
+    FoodTruckCheckInPage,
     FoodTruckProfileSettingsPage,
     FoodTruckAccountSettingsPage,
     AddMenu,

@@ -64,7 +64,7 @@ export class GoogleMaps{
       let request = {
         latitude: position.coords.latitude.toString(),
         longitude: position.coords.longitude.toString(),
-        radius: '5000',
+        radius: '10000',
         types: 'foodtrucks'
       };
 

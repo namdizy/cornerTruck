@@ -7,14 +7,11 @@ import { NavController, NavParams, ViewController  } from 'ionic-angular';
 })
 export class EditMenu {
 
-  public menuItem: any;
+  public menuItem: any = {};
+  public segments: any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
-
-  }
-
-  ionViewWillEnter() {
-    this.menuItem = this.navParams.get('menuItem');
-    console.log(this.menuItem);
+    this.menuItem = this.navParams.get('menu');
+    this.segments = this.navParams.get('segments');
   }
 
   back(){
@@ -22,7 +19,7 @@ export class EditMenu {
   }
 
   save(){
-
+    this.viewCtrl.dismiss(this.menuItem);
   }
 
 }

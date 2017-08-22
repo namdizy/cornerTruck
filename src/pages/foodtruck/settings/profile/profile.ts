@@ -55,8 +55,11 @@ export class FoodTruckProfileSettingsPage {
     let addModal = this.modalCtrl.create(AddMenu);
     addModal.onDidDismiss(data => {
       console.log(data);
-      this.menu.push(data.menuItem);
-      this.segments = data.segmentList;
+      if(data){
+        this.menu.push(data.menuItem);
+        this.segments = data.segmentList;
+      }
+
     });
     addModal.present();
   }
@@ -134,11 +137,10 @@ export class FoodTruckProfileSettingsPage {
 
   }
   goToMenuDetails(menuItem){
-    console.log("in the go to edit menu call");
     console.log(menuItem);
-    let editModal = this.modalCtrl.create(EditMenu, menuItem);
+    let editModal = this.modalCtrl.create(EditMenu, {menu: menuItem, segments: this.segments});
     editModal.onDidDismiss(data => {
-      console.log(data);
+      menuItem = data;
     });
     editModal.present();
   }
